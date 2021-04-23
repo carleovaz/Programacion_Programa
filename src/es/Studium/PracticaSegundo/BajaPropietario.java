@@ -192,4 +192,3 @@ public class BajaPropietario implements ActionListener, WindowListener
 	}
 
 
-

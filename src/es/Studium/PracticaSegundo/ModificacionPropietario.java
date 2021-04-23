@@ -118,6 +118,7 @@ public class ModificacionPropietario implements ActionListener, WindowListener
 
 			String[] elegidoMod = choModificarPropietarios.getSelectedItem().split("-");
 			textoModIdPropietario.setText(elegidoMod[0]);
+			textoModIdPropietario.setEditable(false);
 			textoModNombrePropietario.setText(elegidoMod[1]);
 			textoModDireccionPropietario.setText(elegidoMod[2]);
 			textoModTelefonoPropietario.setText(elegidoMod[3]);
