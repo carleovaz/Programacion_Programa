@@ -44,6 +44,8 @@ public class Programa_Gestion implements WindowListener, ActionListener
 	//CONEXION A LA BASE DE DATOS
 	BaseDeDatos bd;
 	String sentencia = "";
+	String usuario;
+	FicheroLog log = new FicheroLog();
 	Connection connection = null;
 	Statement statement = null;
 	ResultSet rs = null;

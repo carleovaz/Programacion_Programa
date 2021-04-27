@@ -38,6 +38,8 @@ public class Login implements WindowListener, ActionListener //IMPLEMENTACIÓN DE
 	String Login = "root";
 	String password = "Studium2020;";
 	String sentencia = "";
+	String usuario;
+	FicheroLog log = new FicheroLog();
 	Connection connection = null;
 	Statement statement = null;
 	ResultSet rs = null;

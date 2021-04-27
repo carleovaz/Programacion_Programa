@@ -44,6 +44,8 @@ public class ModificacionPropietario implements ActionListener, WindowListener
 
 	BaseDeDatos bd;
 	String sentencia = "";
+	String usuario;
+	FicheroLog log = new FicheroLog();
 	Connection connection = null;
 	Statement statement = null;
 	ResultSet rs = null;
