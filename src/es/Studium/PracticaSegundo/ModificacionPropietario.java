@@ -50,7 +50,7 @@ public class ModificacionPropietario implements ActionListener, WindowListener
 	Statement statement = null;
 	ResultSet rs = null;
 
-	public ModificacionPropietario()
+	public ModificacionPropietario(String usuario)
 	{
 		bd = new BaseDeDatos();
 		connection = bd.conectar();

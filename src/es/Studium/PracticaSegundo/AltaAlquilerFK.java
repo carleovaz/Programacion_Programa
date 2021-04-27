@@ -37,8 +37,9 @@ public class AltaAlquilerFK implements WindowListener, ActionListener
 	ResultSet rs = null;
 
 	//CONSTRUCTOR, INCLUIMOS LOS ELEMENTOS
-	public AltaAlquilerFK()
+	public AltaAlquilerFK(String usuario)
 	{
+		this.usuario = usuario;
 		frameAltaAlquiler.setLayout(new FlowLayout());
 		
 		frameAltaAlquiler.add(labelCliente);

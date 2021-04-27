@@ -27,7 +27,7 @@ public class ConsultaPropietario implements WindowListener, ActionListener
 	Statement statement = null;
 	ResultSet rs = null;
 
-	public ConsultaPropietario()
+	public ConsultaPropietario(String usuario)
 	{
 		frameConsultaPropietarios.setLayout(new FlowLayout());
 		bd = new BaseDeDatos();

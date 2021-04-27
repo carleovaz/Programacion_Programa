@@ -41,8 +41,9 @@ public class AltaPropietario implements ActionListener, WindowListener
 	ResultSet rs = null;
 
 	//CONSTRUCTORES
-	public AltaPropietario()
+	public AltaPropietario(String usuario)
 	{
+		this.usuario = usuario;
 		frameAltaPropietario.setLayout(new FlowLayout());
 
 		frameAltaPropietario.add(labelNombrePropietario);

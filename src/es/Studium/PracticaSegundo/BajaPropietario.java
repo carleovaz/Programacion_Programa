@@ -37,7 +37,7 @@ public class BajaPropietario implements ActionListener, WindowListener
 	Statement statement = null;
 	ResultSet rs = null;
 
-	public BajaPropietario()
+	public BajaPropietario(String usuario)
 	{
 		//CONECTAMOS A LA BASE DE DATOS
 		frameBajaPropietario.setLayout(new FlowLayout());

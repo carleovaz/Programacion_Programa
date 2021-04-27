@@ -40,9 +40,9 @@ public class AltaCliente implements ActionListener, WindowListener
 	Statement statement = null;
 	ResultSet rs = null;
 
-	public AltaCliente()
+	public AltaCliente(String usuario)
 	{
-		//AÑADIMOS EL FRAME Y SUS OBJETOS
+		this.usuario = usuario;
 		frameAltaCliente.setLayout(new FlowLayout());
 
 		frameAltaCliente.add(labelNombreCliente);

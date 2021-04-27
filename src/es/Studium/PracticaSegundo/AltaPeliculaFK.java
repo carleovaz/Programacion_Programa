@@ -42,8 +42,9 @@ public class AltaPeliculaFK implements WindowListener, ActionListener
 	ResultSet rs = null;
 
 	//CONSTRUCTOR
-	public AltaPeliculaFK()
+	public AltaPeliculaFK(String usuario)
 	{
+		this.usuario = usuario;
 		FrameAltaPelicula.setLayout(new FlowLayout());
 
 		FrameAltaPelicula.add(labelNombrePelicula);

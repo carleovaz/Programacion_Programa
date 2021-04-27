@@ -27,7 +27,7 @@ public class ConsultaCliente implements WindowListener, ActionListener
 	Statement statement = null;
 	ResultSet rs = null;
 
-	public ConsultaCliente()
+	public ConsultaCliente(String usuario)
 	{
 		//CONECTAMOS CON LA BASE DE DATOS
 		frameConsultaClientes.setLayout(new FlowLayout());

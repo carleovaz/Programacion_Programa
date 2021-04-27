@@ -30,7 +30,7 @@ public class ConsultaAlquiler implements WindowListener, ActionListener
 	Statement statement = null;
 	ResultSet rs = null;
 
-	public ConsultaAlquiler()
+	public ConsultaAlquiler(String usuario)
 	{
 		bd = new BaseDeDatos();
 		connection = bd.conectar();

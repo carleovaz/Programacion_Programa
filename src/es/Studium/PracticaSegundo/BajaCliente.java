@@ -38,7 +38,7 @@ public class BajaCliente implements ActionListener, WindowListener
 	ResultSet rs = null;
 
 	//CONSTRUCTOR
-	public BajaCliente()
+	public BajaCliente(String usuario)
 	{
 		//CONECTAMOS A LA BASE DE DATOS
 		bd = new BaseDeDatos();

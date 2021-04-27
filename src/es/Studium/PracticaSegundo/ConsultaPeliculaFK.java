@@ -31,7 +31,7 @@ public class ConsultaPeliculaFK implements WindowListener, ActionListener
 	ResultSet rs = null;
 
 	//CONSTRUCTORES
-	public ConsultaPeliculaFK()
+	public ConsultaPeliculaFK(String usuario)
 	{
 		//CONECTAMOS A LA BASE DE DATOS
 		bd = new BaseDeDatos();

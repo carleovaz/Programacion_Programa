@@ -50,7 +50,7 @@ public class ModificacionCliente implements ActionListener, WindowListener
 	Statement statement = null;
 	ResultSet rs = null;
 
-	public ModificacionCliente()
+	public ModificacionCliente(String usuario)
 	{
 		//CONECTAMOS A LA BASE DE DATOS
 		bd = new BaseDeDatos();
