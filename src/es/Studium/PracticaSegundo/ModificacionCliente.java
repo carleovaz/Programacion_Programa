@@ -121,7 +121,6 @@ public class ModificacionCliente implements ActionListener, WindowListener
 
 			String[] elegidoMod = choModificarClientes.getSelectedItem().split("-");
 			textoModIdCliente.setText(elegidoMod[0]);
-			textoModIdCliente.setEditable(false);
 			textoModNombreCliente.setText(elegidoMod[1]);
 			textoModDireccionCliente.setText(elegidoMod[2]);
 			textoModDNICliente.setText(elegidoMod[3]);

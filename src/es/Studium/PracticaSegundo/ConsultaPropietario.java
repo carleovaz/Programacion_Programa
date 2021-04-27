@@ -51,16 +51,15 @@ public class ConsultaPropietario implements WindowListener, ActionListener
 		{}
 		finally
 		{
-			frameConsultaPropietarios.add(listadoPropietarios);
-			frameConsultaPropietarios.add(botonPdfPropietarios);
-
-			frameConsultaPropietarios.setSize(280,160);
-			frameConsultaPropietarios.setResizable(false);
-			frameConsultaPropietarios.setLocationRelativeTo(null);
-			frameConsultaPropietarios.addWindowListener(this);
-			frameConsultaPropietarios.setVisible(true);
 		}
+		frameConsultaPropietarios.add(listadoPropietarios);
+		frameConsultaPropietarios.add(botonPdfPropietarios);
 
+		frameConsultaPropietarios.setSize(280,160);
+		frameConsultaPropietarios.setResizable(false);
+		frameConsultaPropietarios.setLocationRelativeTo(null);
+		frameConsultaPropietarios.addWindowListener(this);
+		frameConsultaPropietarios.setVisible(true);
 	}
 	
 	@Override

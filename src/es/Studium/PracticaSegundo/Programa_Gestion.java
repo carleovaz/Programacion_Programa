@@ -49,13 +49,13 @@ public class Programa_Gestion implements WindowListener, ActionListener
 	ResultSet rs = null;
 
 	//PARAMETROS Y OBJETOS DE PROGRAMA_GESTION
-	public Programa_Gestion(int tipo)
+	public Programa_Gestion(String usuario)
 	{
 		//ESTABLECEMOS EL LAYOUT
 		ventanaPrincipal.setLayout(new FlowLayout());
 		//AÑADIMOS LOS OBJETOS Y CARACTERISTICAS AL MENU
 		ventanaPrincipal.setMenuBar(barraMenu);
-		if(tipo==0)//SI ES ADMIN
+		if(usuario.equals("Admin"))//SI ES ADMIN
 		{
 			barraMenu.add(menuClientes);
 			menuItemAltaCliente.addActionListener(this);
@@ -89,7 +89,7 @@ public class Programa_Gestion implements WindowListener, ActionListener
 			menuItemModificacionPropietario.addActionListener(this);
 			menuPropietario.add(menuItemModificacionPropietario);
 		}
-		else if(tipo==1)//SI ES USUARIO
+		else if(usuario.equals("Usuario"))//SI ES USUARIO
 		{
 			barraMenu.add(menuClientes);
 			menuItemAltaCliente.addActionListener(this);

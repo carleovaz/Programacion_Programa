@@ -88,8 +88,8 @@ public class Login implements WindowListener, ActionListener //IMPLEMENTACIÓN DE
 				if(rs.next())
 				{
 					//SI EXISTE EN NUESTRA BASE DE DATOS EL USUARIO BUSCADO, SE MOSTRARA EL MENU PRINCIPAL
-					int tipo = rs.getInt("tipoUsuario");
-					new Programa_Gestion(tipo);
+					String usuario = rs.getString("nombreUsuario");
+					new Programa_Gestion(usuario);
 				}
 				else
 				{
@@ -107,7 +107,9 @@ public class Login implements WindowListener, ActionListener //IMPLEMENTACIÓN DE
 			}
 
 			catch (SQLException sqle)
-			{}
+			{
+				
+			}
 
 		}
 
