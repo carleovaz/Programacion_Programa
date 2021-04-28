@@ -130,78 +130,78 @@ public class Programa_Gestion implements WindowListener, ActionListener
 		//ALTA CLIENTE
 		if(evento.getSource().equals(menuItemAltaCliente))
 		{
-			log.guardar(usuario, "Ha clickado en Alta Cliente.");
+			log.guardar(usuario, "Ha clicado en Alta Cliente.");
 			new AltaCliente(usuario);
 			
 		}
 		//BAJA CLIENTE
 		else if(evento.getSource().equals(menuItemBajaCliente))
 		{
-			log.guardar(usuario, "Ha clickado en Baja Cliente.");
+			log.guardar(usuario, "Ha clicado en Baja Cliente.");
 			new BajaCliente(usuario);
 		}
 		//CONSULTA CLIENTE
 		else if(evento.getSource().equals(menuItemConsultaCliente))
 		{
-			log.guardar(usuario, "Ha clickado en Consulta Cliente.");
+			log.guardar(usuario, "Ha clicado en Consulta Cliente.");
 			new ConsultaCliente(usuario);
 		}
 		//MODIFICACIÓN CLIENTE
 		else if(evento.getSource().equals(menuItemModificacionCliente))
 		{
-			log.guardar(usuario, "Ha clickado en Modificación Cliente.");
+			log.guardar(usuario, "Ha clicado en Modificación Cliente.");
 			new ModificacionCliente(usuario);
 		}
 		//MENU PROPIETARIO
 		//ALTA PROPIETARIO		
 		if(evento.getSource().equals(menuItemAltaPropietario))
 		{
-			log.guardar(usuario, "Ha clickado en Alta Propietario.");
+			log.guardar(usuario, "Ha clicado en Alta Propietario.");
 			new AltaPropietario(usuario);
 		}
 		//BAJA PROPIETARIO
 		else if(evento.getSource().equals(menuItemBajaPropietario))
 		{
-			log.guardar(usuario, "Ha clickado en Baja Propietario.");
+			log.guardar(usuario, "Ha clicado en Baja Propietario.");
 			new BajaPropietario(usuario);
 		}
 		//CONSULTA PROPIETARIO
 		else if(evento.getSource().equals(menuItemConsultaPropietario))
 		{
-			log.guardar(usuario, "Ha clickado en Consulta Propietario.");
+			log.guardar(usuario, "Ha clicado en Consulta Propietario.");
 			new ConsultaPropietario(usuario);
 		}
 		//MODIFICACION PROPIETARIO
 		else if(evento.getSource().equals(menuItemModificacionPropietario))
 		{
-			log.guardar(usuario, "Ha clickado en Modificación Propietario.");
+			log.guardar(usuario, "Ha clicado en Modificación Propietario.");
 			new ModificacionPropietario(usuario);
 		}
 		//PELICULAS
 		//ALTA PELICULAS
 		else if(evento.getSource().equals(menuItemAltaPelicula))
 		{
-			log.guardar(usuario, "Ha clickado en Alta Pelicula.");
+			log.guardar(usuario, "Ha clicado en Alta Pelicula.");
 			new AltaPeliculaFK(usuario);
 		}
 		//CONSULTA PELICULAS
 		else if(evento.getSource().equals(menuItemConsultaPelicula))
 		{
-			log.guardar(usuario, "Ha clickado en Consulta Cliente.");
+			log.guardar(usuario, "Ha clicado en Consulta Cliente.");
 			new ConsultaPeliculaFK(usuario);
 		}
 		//ALQUILERES
 		//ALTA ALQUILER
 		else if(evento.getSource().equals(menuItemAltaAlquiler))
 		{
-			log.guardar(usuario, "Ha clickado en Alta Alquiler.");
+			log.guardar(usuario, "Ha clicado en Alta Alquiler.");
 			new AltaAlquilerFK(usuario);
 		}
 		
 		//CONSULTA ALQUILER
 		else if(evento.getSource().equals(menuItemConsultaAlquiler))
 		{
-			log.guardar(usuario, "Ha clickado en Consulta Alquiler.");
+			log.guardar(usuario, "Ha clicado en Consulta Alquiler.");
 			new ConsultaAlquiler(usuario);
 		}
 	}

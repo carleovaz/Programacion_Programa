@@ -17,7 +17,7 @@ public class ConsultaCliente implements WindowListener, ActionListener
 {
 	Frame frameConsultaClientes = new Frame("Consulta de Clientes");
 	TextArea listadoClientes = new TextArea(4, 30);
-	Button botonPdfClientes = new Button("PDF");
+	Button botonPdf = new Button("PDF");
 
 	BaseDeDatos bd;
 	String sentencia = "";
@@ -29,6 +29,7 @@ public class ConsultaCliente implements WindowListener, ActionListener
 
 	public ConsultaCliente(String usuario)
 	{
+		this.usuario = usuario;
 		//CONECTAMOS CON LA BASE DE DATOS
 		frameConsultaClientes.setLayout(new FlowLayout());
 		bd = new BaseDeDatos();
@@ -61,7 +62,7 @@ public class ConsultaCliente implements WindowListener, ActionListener
 		}
 		listadoClientes.setEditable(false);
 		frameConsultaClientes.add(listadoClientes);
-		frameConsultaClientes.add(botonPdfClientes);
+		frameConsultaClientes.add(botonPdf);
 
 		frameConsultaClientes.setSize(280,160);
 		frameConsultaClientes.setResizable(false);
@@ -71,8 +72,12 @@ public class ConsultaCliente implements WindowListener, ActionListener
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
+	public void actionPerformed(ActionEvent evento) 
+	{
+		if(evento.equals(botonPdf))
+		{
+			log.guardar(usuario, "Ha solicitado el pdf de consulta de los clientes.");
+		}
 
 	}
 	@Override

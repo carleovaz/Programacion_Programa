@@ -39,6 +39,7 @@ public class BajaPropietario implements ActionListener, WindowListener
 
 	public BajaPropietario(String usuario)
 	{
+		this.usuario = usuario;
 		//CONECTAMOS A LA BASE DE DATOS
 		frameBajaPropietario.setLayout(new FlowLayout());
 		frameBajaPropietario.add(labelMensajeBajaPropietario);
@@ -112,6 +113,7 @@ public class BajaPropietario implements ActionListener, WindowListener
 				statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
 						ResultSet.CONCUR_READ_ONLY);
 				System.out.println(sentencia);
+				log.guardar(usuario,sentencia);
 				statement.executeUpdate(sentencia);
 				labelConfirmacionBajaPropietario.setText("Baja de Propietario Correcta");
 			}

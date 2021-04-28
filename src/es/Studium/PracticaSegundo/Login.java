@@ -55,6 +55,8 @@ public class Login implements WindowListener, ActionListener //IMPLEMENTACIÓN DE
 		login.add(labelClave);
 		textoClave.setEchoChar('*');
 		login.add(textoClave);
+		textoUsuario.setText("Admin");
+		textoClave.setText("Studium2021;");
 		botonEntrar.addActionListener(this);
 		login.add(botonEntrar);
 		botonBorrar.addActionListener(this);

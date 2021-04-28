@@ -32,6 +32,7 @@ public class ConsultaAlquiler implements WindowListener, ActionListener
 
 	public ConsultaAlquiler(String usuario)
 	{
+		this.usuario = usuario;
 		bd = new BaseDeDatos();
 		connection = bd.conectar();
 		sentencia = "SELECT * FROM alquileres";
@@ -70,6 +71,7 @@ public class ConsultaAlquiler implements WindowListener, ActionListener
 			ventanaAlquilerConsulta.setVisible(true);
 			bd.desconectar(connection);
 		}
+		
 	}
 
 	public void windowClosing(WindowEvent e)
@@ -82,7 +84,10 @@ public class ConsultaAlquiler implements WindowListener, ActionListener
 
 	public void actionPerformed(ActionEvent evento) 
 	{
-		
+		if(evento.equals(botonPdf))
+		{
+			log.guardar(usuario, "Ha solicitado el pdf de consulta de alquileres.");
+		}
 	}
 	public void windowActivated(WindowEvent we) 
 	{

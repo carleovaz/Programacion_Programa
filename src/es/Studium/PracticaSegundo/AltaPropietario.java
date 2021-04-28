@@ -101,6 +101,7 @@ public class AltaPropietario implements ActionListener, WindowListener
 							textoTelefonoPropietario.getText() + "', '" +
 							textoDNIPropietario.getText() + "')";
 					System.out.println(sentencia);
+					log.guardar(usuario, sentencia);
 					statement.executeUpdate(sentencia);
 				}
 				else

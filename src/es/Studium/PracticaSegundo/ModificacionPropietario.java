@@ -52,6 +52,7 @@ public class ModificacionPropietario implements ActionListener, WindowListener
 
 	public ModificacionPropietario(String usuario)
 	{
+		this.usuario = usuario;
 		bd = new BaseDeDatos();
 		connection = bd.conectar();
 		sentencia = "SELECT * FROM propietario";
@@ -119,6 +120,7 @@ public class ModificacionPropietario implements ActionListener, WindowListener
 			frameModificacionPropietarioEdit.setVisible(true);
 
 			String[] elegidoMod = choModificarPropietarios.getSelectedItem().split("-");
+			textoModIdPropietario.setEditable(false);
 			textoModIdPropietario.setText(elegidoMod[0]);
 			textoModNombrePropietario.setText(elegidoMod[1]);
 			textoModDireccionPropietario.setText(elegidoMod[2]);
@@ -144,6 +146,7 @@ public class ModificacionPropietario implements ActionListener, WindowListener
 							+ "dniPropietario='"+textoModDNIPropietario.getText()+ "' "
 							+ "WHERE idPropietario="+textoModIdPropietario.getText();
 					System.out.println(sentencia);
+					log.guardar(usuario, sentencia);
 					statement.executeUpdate(sentencia);
 				}
 				else

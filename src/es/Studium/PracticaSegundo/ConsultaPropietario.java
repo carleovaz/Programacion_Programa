@@ -17,7 +17,7 @@ public class ConsultaPropietario implements WindowListener, ActionListener
 {
 	Frame frameConsultaPropietarios = new Frame("Consulta de Propietarios");
 	TextArea listadoPropietarios = new TextArea(4, 30);
-	Button botonPdfPropietarios = new Button("PDF");
+	Button botonPdf = new Button("PDF");
 	
 	BaseDeDatos bd;
 	String sentencia = "";
@@ -55,7 +55,7 @@ public class ConsultaPropietario implements WindowListener, ActionListener
 		{
 		}
 		frameConsultaPropietarios.add(listadoPropietarios);
-		frameConsultaPropietarios.add(botonPdfPropietarios);
+		frameConsultaPropietarios.add(botonPdf);
 
 		frameConsultaPropietarios.setSize(280,160);
 		frameConsultaPropietarios.setResizable(false);
@@ -75,8 +75,12 @@ public class ConsultaPropietario implements WindowListener, ActionListener
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+	public void actionPerformed(ActionEvent evento) 
+	{
+		if(evento.equals(botonPdf))
+		{
+			log.guardar(usuario, "Ha solicitado el pdf de consulta de las peliculas.");
+		}
 		
 	}
 

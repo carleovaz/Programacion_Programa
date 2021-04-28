@@ -52,6 +52,7 @@ public class ModificacionCliente implements ActionListener, WindowListener
 
 	public ModificacionCliente(String usuario)
 	{
+		this.usuario = usuario;
 		//CONECTAMOS A LA BASE DE DATOS
 		bd = new BaseDeDatos();
 		connection = bd.conectar();
@@ -122,6 +123,7 @@ public class ModificacionCliente implements ActionListener, WindowListener
 			frameModificacionClienteEdit.setVisible(true);
 
 			String[] elegidoMod = choModificarClientes.getSelectedItem().split("-");
+			textoModIdCliente.setEditable(false);
 			textoModIdCliente.setText(elegidoMod[0]);
 			textoModNombreCliente.setText(elegidoMod[1]);
 			textoModDireccionCliente.setText(elegidoMod[2]);
@@ -150,6 +152,7 @@ public class ModificacionCliente implements ActionListener, WindowListener
 							+ "correoCliente='"+textoModCorreoCliente.getText()+ "' "
 							+ "WHERE idCliente="+textoModIdCliente.getText();
 					System.out.println(sentencia);
+					log.guardar(usuario, sentencia);
 					statement.executeUpdate(sentencia);
 				}
 				else

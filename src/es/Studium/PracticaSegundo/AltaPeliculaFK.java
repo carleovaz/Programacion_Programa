@@ -109,6 +109,7 @@ public class AltaPeliculaFK implements WindowListener, ActionListener
 				//CREAMOS SENTENCIA
 				statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
 						ResultSet.CONCUR_READ_ONLY);
+				log.guardar(usuario, sentencia);
 				statement.executeUpdate(sentencia);
 			}
 			catch (SQLException sqle)

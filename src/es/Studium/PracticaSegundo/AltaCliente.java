@@ -100,6 +100,7 @@ public class AltaCliente implements ActionListener, WindowListener
 							textoDNICliente.getText() + "', '" +
 							textoCorreoCliente.getText() + "')";
 					System.out.println(sentencia);
+					log.guardar(usuario, sentencia);
 					statement.executeUpdate(sentencia);
 					labelMensajeAltaCliente.setText("Alta de Cliente Correcta");
 				}

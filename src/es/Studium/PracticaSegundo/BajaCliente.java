@@ -40,6 +40,7 @@ public class BajaCliente implements ActionListener, WindowListener
 	//CONSTRUCTOR
 	public BajaCliente(String usuario)
 	{
+		this.usuario = usuario;
 		//CONECTAMOS A LA BASE DE DATOS
 		bd = new BaseDeDatos();
 		connection = bd.conectar();
@@ -122,6 +123,7 @@ public class BajaCliente implements ActionListener, WindowListener
 				statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
 						ResultSet.CONCUR_READ_ONLY);
 				System.out.println(sentencia);
+				log.guardar(usuario, sentencia);
 				statement.executeUpdate(sentencia);
 				labelConfirmacionBajaCliente.setText("Baja de Cliente Correcta");
 			}

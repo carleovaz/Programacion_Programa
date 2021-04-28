@@ -130,6 +130,7 @@ public class AltaAlquilerFK implements WindowListener, ActionListener
 						+choClientes.getSelectedItem().split("-")[0]+"',"
 						+choPeliculas.getSelectedItem().split("-")[0]
 								+")";
+				log.guardar(usuario, sentencia);
 				statement.executeUpdate(sentencia);
 				labelMensajeAlta.setText("¡Alta de Alquiler Completada!");
 			}

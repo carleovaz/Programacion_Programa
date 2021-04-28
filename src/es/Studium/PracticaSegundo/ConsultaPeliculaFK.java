@@ -33,6 +33,7 @@ public class ConsultaPeliculaFK implements WindowListener, ActionListener
 	//CONSTRUCTORES
 	public ConsultaPeliculaFK(String usuario)
 	{
+		this.usuario = usuario;
 		//CONECTAMOS A LA BASE DE DATOS
 		bd = new BaseDeDatos();
 		connection = bd.conectar();
@@ -84,8 +85,12 @@ public class ConsultaPeliculaFK implements WindowListener, ActionListener
 	}
 	
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
+	public void actionPerformed(ActionEvent evento) 
+	{
+		if(evento.equals(botonPdf))
+		{
+			log.guardar(usuario, "Ha solicitado el pdf de consulta de las peliculas.");
+		}
 
 	}
 
