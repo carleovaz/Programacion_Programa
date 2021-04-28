@@ -29,6 +29,7 @@ public class ConsultaPropietario implements WindowListener, ActionListener
 
 	public ConsultaPropietario(String usuario)
 	{
+		this.usuario = usuario;
 		frameConsultaPropietarios.setLayout(new FlowLayout());
 		bd = new BaseDeDatos();
 		connection = bd.conectar();
@@ -65,7 +66,7 @@ public class ConsultaPropietario implements WindowListener, ActionListener
 	}
 	
 	@Override
-	public void windowClosing(WindowEvent e) 
+	public void windowClosing(WindowEvent evento) 
 	{
 		if(frameConsultaPropietarios.isActive())
 		{
@@ -77,9 +78,9 @@ public class ConsultaPropietario implements WindowListener, ActionListener
 	@Override
 	public void actionPerformed(ActionEvent evento) 
 	{
-		if(evento.equals(botonPdf))
+		if(evento.getSource().equals(botonPdf))
 		{
-			log.guardar(usuario, "Ha solicitado el pdf de consulta de las peliculas.");
+			log.guardar(usuario, "Ha solicitado el pdf de consulta de alquileres.");
 		}
 		
 	}

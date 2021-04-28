@@ -81,6 +81,7 @@ public class AltaPropietario implements ActionListener, WindowListener
 	{
 		if(evento.getSource().equals(botonAceptarAltaPropietario))
 		{
+			log.guardar(usuario, "Ha pulsado Aceptar Alta Propietario.");
 			bd = new BaseDeDatos();
 			connection = bd.conectar();
 			try
@@ -127,6 +128,7 @@ public class AltaPropietario implements ActionListener, WindowListener
 		
 		if (evento.getSource().equals(botonCancelarAltaPropietario))
 		{
+			log.guardar(usuario, "Ha pulsado Cancelar Alta Propietario.");
 			if(frameAltaPropietario.isActive())
 			{
 				frameAltaPropietario.setVisible(false);

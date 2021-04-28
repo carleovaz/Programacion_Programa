@@ -95,6 +95,7 @@ public class AltaPeliculaFK implements WindowListener, ActionListener
 	{
 		if(evento.getSource().equals(botonAceptar))
 		{
+			log.guardar(usuario, "Ha pulsado Aceptar Alta Cliente.");
 			bd = new BaseDeDatos();
 			connection = bd.conectar();
 			try
@@ -111,6 +112,7 @@ public class AltaPeliculaFK implements WindowListener, ActionListener
 						ResultSet.CONCUR_READ_ONLY);
 				log.guardar(usuario, sentencia);
 				statement.executeUpdate(sentencia);
+				
 			}
 			catch (SQLException sqle)
 			{
@@ -132,6 +134,7 @@ public class AltaPeliculaFK implements WindowListener, ActionListener
 
 		else if (evento.getSource().equals(botonCancelar)) 
 		{
+			log.guardar(usuario, "Ha pulsado Cancelar Alta Pelicula.");
 			FrameAltaPelicula.setVisible(false);
 		}
 

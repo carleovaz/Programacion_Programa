@@ -76,7 +76,7 @@ public class ConsultaPeliculaFK implements WindowListener, ActionListener
 
 
 	@Override
-	public void windowClosing(WindowEvent arg0) 
+	public void windowClosing(WindowEvent evento) 
 	{
 		if(ventanaPeliculasConsulta.isActive())
 		{
@@ -87,9 +87,9 @@ public class ConsultaPeliculaFK implements WindowListener, ActionListener
 	@Override
 	public void actionPerformed(ActionEvent evento) 
 	{
-		if(evento.equals(botonPdf))
+		if(evento.getSource().equals(botonPdf))
 		{
-			log.guardar(usuario, "Ha solicitado el pdf de consulta de las peliculas.");
+			log.guardar(usuario, "Ha solicitado el pdf de consulta de alquileres.");
 		}
 
 	}

@@ -76,9 +76,11 @@ public class AltaCliente implements ActionListener, WindowListener
 	@Override
 	public void actionPerformed(ActionEvent evento) 
 	{
+		
 		//AÑADIMOS LA FUNCIONALIDAD DL BOTON ACEPTAR ALTA CLIENTE
 		if(evento.getSource().equals(botonAceptarAltaCliente))
 		{
+			log.guardar(usuario, "Ha pulsado Aceptar Alta Cliente.");
 			//CONECTAMOS A LA BASE DE DATOS
 			bd = new BaseDeDatos();
 			connection = bd.conectar();
@@ -102,7 +104,7 @@ public class AltaCliente implements ActionListener, WindowListener
 					System.out.println(sentencia);
 					log.guardar(usuario, sentencia);
 					statement.executeUpdate(sentencia);
-					labelMensajeAltaCliente.setText("Alta de Cliente Correcta");
+
 				}
 				else
 				{
@@ -127,6 +129,7 @@ public class AltaCliente implements ActionListener, WindowListener
 		//AÑADIMOS FUNCIONALIDAD AL BOTON CANCELAR
 		else if (evento.getSource().equals(botonCancelarAltaCliente))
 		{
+			log.guardar(usuario, "Ha pulsado Cancelar Alta Cliente.");
 			if(frameAltaCliente.isActive())
 			{
 				frameAltaCliente.setVisible(false);

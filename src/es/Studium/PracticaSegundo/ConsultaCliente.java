@@ -74,9 +74,9 @@ public class ConsultaCliente implements WindowListener, ActionListener
 	@Override
 	public void actionPerformed(ActionEvent evento) 
 	{
-		if(evento.equals(botonPdf))
+		if(evento.getSource().equals(botonPdf))
 		{
-			log.guardar(usuario, "Ha solicitado el pdf de consulta de los clientes.");
+			log.guardar(usuario, "Ha solicitado el pdf de consulta de alquileres.");
 		}
 
 	}

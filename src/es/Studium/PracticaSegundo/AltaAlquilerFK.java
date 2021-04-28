@@ -120,6 +120,7 @@ public class AltaAlquilerFK implements WindowListener, ActionListener
 	{
 		if(botonAceptarAltaAlquiler.equals(evento.getSource()))
 		{
+			log.guardar(usuario, "Ha pulsado Aceptar Alta Alquiler.");
 			bd = new BaseDeDatos();
 			connection = bd.conectar();
 			try
@@ -132,12 +133,11 @@ public class AltaAlquilerFK implements WindowListener, ActionListener
 								+")";
 				log.guardar(usuario, sentencia);
 				statement.executeUpdate(sentencia);
-				labelMensajeAlta.setText("¡Alta de Alquiler Completada!");
 			}
 			
 			catch (SQLException sqle)
 			{
-				labelMensajeAlta.setText("Error en asignación");
+				labelMensajeAlta.setText("Faltan datos");
 			}
 
 			finally
@@ -155,7 +155,14 @@ public class AltaAlquilerFK implements WindowListener, ActionListener
 		
 		else if (evento.getSource().equals(botonCancelarAltaAlquiler)) 
 		{
-			labelMensajeAlta.setText("Faltan datos");
+			log.guardar(usuario, "Ha pulsado Cancelar Alta Alquiler.");
+			
+			
+			if(frameAltaAlquiler.isActive())
+			{
+				frameAltaAlquiler.setVisible(false);
+			}
+			
 		}
 
 		else if (evento.getSource().equals(botonCancelarAltaAlquiler)) 
@@ -169,6 +176,7 @@ public class AltaAlquilerFK implements WindowListener, ActionListener
 	public void windowClosing(WindowEvent e) 
 	{
 		frameAltaAlquiler.setVisible(false);
+		
 
 	}
 

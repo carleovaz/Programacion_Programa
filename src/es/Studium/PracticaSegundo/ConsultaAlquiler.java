@@ -84,7 +84,7 @@ public class ConsultaAlquiler implements WindowListener, ActionListener
 
 	public void actionPerformed(ActionEvent evento) 
 	{
-		if(evento.equals(botonPdf))
+		if(evento.getSource().equals(botonPdf))
 		{
 			log.guardar(usuario, "Ha solicitado el pdf de consulta de alquileres.");
 		}
