@@ -89,7 +89,7 @@ public class ConsultaPeliculaFK implements WindowListener, ActionListener
 	{
 		if(evento.getSource().equals(botonPdf))
 		{
-			log.guardar(usuario, "Ha solicitado el pdf de consulta de alquileres.");
+			log.guardar(usuario, "Ha solicitado el pdf de consulta de peliculas.");
 		}
 
 	}

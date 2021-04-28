@@ -98,6 +98,7 @@ public class ModificacionCliente implements ActionListener, WindowListener
 	{
 		if(evento.getSource().equals(botonModificarCliente))
 		{
+			log.guardar(usuario, "Ha pulsado Modificar Cliente");
 			frameModificacionClienteEdit.setLayout(new FlowLayout());
 
 			frameModificacionClienteEdit.add(labelModIdCliente);
@@ -133,6 +134,7 @@ public class ModificacionCliente implements ActionListener, WindowListener
 		
 		else if(evento.getSource().equals(botonModificacionClienteAceptar))
 		{
+			log.guardar(usuario, "Ha aceptado la modificación del cliente.");
 			connection = bd.conectar();
 			try
 			{
@@ -177,6 +179,7 @@ public class ModificacionCliente implements ActionListener, WindowListener
 		}
 		else if(evento.getSource().equals(botonModificarClienteCancelar))
 		{
+			log.guardar(usuario, "Ha cancelado la modificación del cliente.");
 			frameModificacionCliente.setVisible(false);
 		}
 	}

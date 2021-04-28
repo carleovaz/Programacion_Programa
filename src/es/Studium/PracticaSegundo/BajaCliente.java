@@ -92,6 +92,7 @@ public class BajaCliente implements ActionListener, WindowListener
 	{
 		if(evento.getSource().equals(botonBorrarCliente))
 		{
+			log.guardar(usuario, "Ha pulsado Borrar Cliente");
 			dilogSeguroCliente.setLayout(new FlowLayout());
 			dilogSeguroCliente.addWindowListener(this);
 			dilogSeguroCliente.setSize(270,100);
@@ -107,11 +108,13 @@ public class BajaCliente implements ActionListener, WindowListener
 
 		else if(evento.getSource().equals(botonNoSeguroCliente))
 		{
+			log.guardar(usuario, "Ha pulsado el botón NO, ha cancelado el borrado");
 			dilogSeguroCliente.setVisible(false);
 		}
 		
 		else if(evento.getSource().equals(botonSiSeguroCliente))
 		{
+			log.guardar(usuario, "Ha pulsado el botón SI, ha borrado el cliente");
 			//CONECTAMOS A LA BASE DE DATOS
 			bd = new BaseDeDatos();
 			connection = bd.conectar();
@@ -129,6 +132,7 @@ public class BajaCliente implements ActionListener, WindowListener
 			}
 			catch (SQLException sqle)
 			{
+				log.guardar(usuario, "El Cliente no puede ser borrado, tiene enlazado algún dato que debes borrar primero.");
 				labelConfirmacionBajaCliente.setText("Error en Baja");
 			}
 			finally

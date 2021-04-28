@@ -95,6 +95,7 @@ public class ModificacionPropietario implements ActionListener, WindowListener
 	{
 		if(evento.getSource().equals(botonModificarPropietario))
 		{
+			log.guardar(usuario, "Ha pulsado modificar cliente.");
 			frameModificacionPropietarioEdit.setLayout(new FlowLayout());
 
 			frameModificacionPropietarioEdit.add(labelModIdPropietario);
@@ -129,6 +130,7 @@ public class ModificacionPropietario implements ActionListener, WindowListener
 		}
 		else if(evento.getSource().equals(botonModificacionPropietarioAceptar))
 		{
+			log.guardar(usuario, "Ha aceptado la modificación del propietario");
 			connection = bd.conectar();
 			try
 			{
@@ -167,6 +169,11 @@ public class ModificacionPropietario implements ActionListener, WindowListener
 				dialogConfirmarModPropietario.add(labelMensajeModPropietario);
 				dialogConfirmarModPropietario.setVisible(true);
 			}
+		}
+		else if(evento.getSource().equals(botonModificarPropietarioCancelar))
+		{
+			log.guardar(usuario, "Ha cancelado la modificación del propietario.");
+			frameModificacionPropietario.setVisible(false);
 		}
 	}
 

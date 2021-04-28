@@ -82,6 +82,7 @@ public class BajaPropietario implements ActionListener, WindowListener
 	{
 		if(evento.getSource().equals(botonBorrarPropietario))
 		{
+			log.guardar(usuario, "Ha pulsado borrar Propietario");
 			dilogSeguroPropietario.setLayout(new FlowLayout());
 			dilogSeguroPropietario.addWindowListener(this);
 			dilogSeguroPropietario.setSize(290,100);
@@ -97,12 +98,13 @@ public class BajaPropietario implements ActionListener, WindowListener
 		//AÑADIMOS FUNCIONALIDAD AL BOTON DE SEGURO NO
 		else if(evento.getSource().equals(botonNoSeguroPropietario))
 		{
+			log.guardar(usuario, "Ha pulsado NO, ha cancelado el borrado");
 			dilogSeguroPropietario.setVisible(false);
 		}
 		//AÑADIMOS FUNCIONALIDAD AL BOTON DE SEGURO SI
 		else if(evento.getSource().equals(botonSiSeguroPropietario))
 		{
-
+			log.guardar(usuario, "Ha pulsado SI, ha borrado el propietario.");
 			bd = new BaseDeDatos();
 			connection = bd.conectar();
 			String[] elegido = choPropietarios.getSelectedItem().split("-");
@@ -119,6 +121,7 @@ public class BajaPropietario implements ActionListener, WindowListener
 			}
 			catch (SQLException sqle)
 			{
+				log.guardar(usuario, "El Propietario no puede ser borrado, tiene enlazado algún dato que debes borrar primero.");
 				labelConfirmacionBajaPropietario.setText("Error en Baja");
 			}
 			finally
