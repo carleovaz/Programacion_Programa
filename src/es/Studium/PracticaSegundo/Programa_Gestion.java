@@ -32,10 +32,14 @@ public class Programa_Gestion implements WindowListener, ActionListener
 
 	Menu menuPeliculas = new Menu ("Peliculas");
 	MenuItem menuItemAltaPelicula = new MenuItem("Alta");
+	MenuItem menuItemBajaPelicula = new MenuItem("Baja");
+	MenuItem menuItemModificacionPelicula = new MenuItem("Modificación");
 	MenuItem menuItemConsultaPelicula = new MenuItem("Consulta");
 
 	Menu menuAlquileres = new Menu ("Alquileres");
 	MenuItem menuItemAltaAlquiler = new MenuItem("Alta");
+	MenuItem menuItemBajaAlquiler = new MenuItem ("Baja");
+	MenuItem menuItemModificacionAlquiler = new MenuItem ("Modificación");
 	MenuItem menuItemConsultaAlquiler = new MenuItem("Consulta");
 
 	Menu menuPropietario = new Menu("Propietario");
@@ -75,14 +79,23 @@ public class Programa_Gestion implements WindowListener, ActionListener
 			barraMenu.add(menuPeliculas);
 			menuItemAltaPelicula.addActionListener(this);
 			menuPeliculas.add(menuItemAltaPelicula);
+			menuItemBajaPelicula.addActionListener(this);
+			menuPeliculas.add(menuItemBajaPelicula);
 			menuItemConsultaPelicula.addActionListener(this);
 			menuPeliculas.add(menuItemConsultaPelicula);
+			menuItemModificacionPelicula.addActionListener(this);
+			menuPeliculas.add(menuItemModificacionPelicula);
 
 			barraMenu.add(menuAlquileres);
 			menuItemAltaAlquiler.addActionListener(this);
 			menuAlquileres.add(menuItemAltaAlquiler);
+			menuItemBajaAlquiler.addActionListener(this);
+			menuAlquileres.add(menuItemBajaAlquiler);
+
 			menuItemConsultaAlquiler.addActionListener(this);
 			menuAlquileres.add(menuItemConsultaAlquiler);
+			menuItemModificacionAlquiler.addActionListener(this);
+			menuAlquileres.add(menuItemModificacionAlquiler);
 
 			barraMenu.add(menuPropietario);
 			menuItemAltaPropietario.addActionListener(this);
@@ -134,8 +147,7 @@ public class Programa_Gestion implements WindowListener, ActionListener
 		if(evento.getSource().equals(menuItemAltaCliente))
 		{
 			log.guardar(usuario, "Ha clicado en Alta Cliente.");
-			new AltaCliente(usuario);
-			
+			new AltaCliente(usuario);	
 		}
 		//BAJA CLIENTE
 		else if(evento.getSource().equals(menuItemBajaCliente))
@@ -155,6 +167,7 @@ public class Programa_Gestion implements WindowListener, ActionListener
 			log.guardar(usuario, "Ha clicado en Modificación Cliente.");
 			new ModificacionCliente(usuario);
 		}
+		
 		//MENU PROPIETARIO
 		//ALTA PROPIETARIO		
 		if(evento.getSource().equals(menuItemAltaPropietario))
@@ -180,6 +193,7 @@ public class Programa_Gestion implements WindowListener, ActionListener
 			log.guardar(usuario, "Ha clicado en Modificación Propietario.");
 			new ModificacionPropietario(usuario);
 		}
+		
 		//PELICULAS
 		//ALTA PELICULAS
 		else if(evento.getSource().equals(menuItemAltaPelicula))
@@ -187,12 +201,25 @@ public class Programa_Gestion implements WindowListener, ActionListener
 			log.guardar(usuario, "Ha clicado en Alta Pelicula.");
 			new AltaPeliculaFK(usuario);
 		}
+		//BAJA PELICULAS
+		else if(evento.getSource().equals(menuItemBajaPelicula))
+		{
+			log.guardar(usuario, "Ha clicado en Baja Pelicula.");
+			new BajaPelicula(usuario);
+		}
 		//CONSULTA PELICULAS
 		else if(evento.getSource().equals(menuItemConsultaPelicula))
 		{
 			log.guardar(usuario, "Ha clicado en Consulta Cliente.");
 			new ConsultaPeliculaFK(usuario);
 		}
+		//MODIFICACION PELICULAS
+		else if(evento.getSource().equals(menuItemModificacionPelicula))
+		{
+			log.guardar(usuario, "Ha clicado en Modificacion Pelicula.");
+			new ModificacionPelicula(usuario);
+		}
+		
 		//ALQUILERES
 		//ALTA ALQUILER
 		else if(evento.getSource().equals(menuItemAltaAlquiler))
@@ -201,11 +228,25 @@ public class Programa_Gestion implements WindowListener, ActionListener
 			new AltaAlquilerFK(usuario);
 		}
 		
+		//BAJA ALQUILER
+		else if(evento.getSource().equals(menuItemBajaAlquiler))
+		{
+			log.guardar(usuario, "Ha clicado en Baja Alquiler.");
+			new BajaAlquiler(usuario);
+		}
+		
 		//CONSULTA ALQUILER
 		else if(evento.getSource().equals(menuItemConsultaAlquiler))
 		{
 			log.guardar(usuario, "Ha clicado en Consulta Alquiler.");
 			new ConsultaAlquiler(usuario);
+		}
+		
+		//MODIFICACION ALQUILER
+		else if(evento.getSource().equals(menuItemModificacionAlquiler))
+		{
+			log.guardar(usuario, "Ha clicado en Modificacion Alquiler.");
+			new ModificacionAlquiler(usuario);
 		}
 	}
 
