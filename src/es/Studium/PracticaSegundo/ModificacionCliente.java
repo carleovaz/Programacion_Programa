@@ -1,3 +1,6 @@
+/*
+ * Estructura de ModificacionCliente
+ */
 package es.Studium.PracticaSegundo;
 
 import java.awt.Button;

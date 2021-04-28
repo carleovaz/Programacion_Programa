@@ -1,3 +1,6 @@
+/*
+ * Estructura de BajaCliente
+ */
 package es.Studium.PracticaSegundo;
 
 import java.awt.Button;

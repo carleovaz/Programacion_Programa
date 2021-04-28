@@ -1,5 +1,7 @@
+/*
+ * Estructura de ConsultaAlquiler
+ */
 package es.Studium.PracticaSegundo;
-
 
 import java.awt.Button;
 import java.awt.FlowLayout;

@@ -1,3 +1,6 @@
+/*
+ * Estructura de BajaPropietario
+ */
 package es.Studium.PracticaSegundo;
 
 import java.awt.Button;

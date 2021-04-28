@@ -1,3 +1,6 @@
+/*
+ * Estructura de AltaPeliculaFK
+ */
 package es.Studium.PracticaSegundo;
 
 import java.awt.Button;

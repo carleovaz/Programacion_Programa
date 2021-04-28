@@ -1,3 +1,6 @@
+/*
+ * Estructura del Login
+ */
 package es.Studium.PracticaSegundo;
 
 import java.awt.Button;

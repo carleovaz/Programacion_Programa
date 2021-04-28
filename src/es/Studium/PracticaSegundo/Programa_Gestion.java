@@ -1,3 +1,6 @@
+/*
+ * Estructura principal de Programa_Gestion
+ */
 package es.Studium.PracticaSegundo;
 
 import java.awt.FlowLayout;

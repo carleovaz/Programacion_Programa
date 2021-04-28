@@ -1,3 +1,6 @@
+/*
+ * Estructura de AltaAlquilerFK
+ */
 package es.Studium.PracticaSegundo;
 
 import java.awt.Button;

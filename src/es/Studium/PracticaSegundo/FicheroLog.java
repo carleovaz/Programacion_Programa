@@ -1,3 +1,6 @@
+/*
+ * Estructura de FicheroLog
+ */
 package es.Studium.PracticaSegundo;
 
 import java.io.BufferedWriter;
