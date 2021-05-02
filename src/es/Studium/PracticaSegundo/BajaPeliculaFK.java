@@ -92,12 +92,8 @@ public class BajaPeliculaFK implements WindowListener, ActionListener
 
 		catch (SQLException sqle)
 		{
-
-		}
-
-		finally
-		{
-			
+			log.guardar(usuario, "La Pelicula no pudo ser borrada.");
+			labelConfirmacionBajaPelicula.setText("Error en Baja");
 		}
 
 		//AÑADIMOS EL FRAME DE DAR DE BAJA LA PELICULA
@@ -149,13 +145,15 @@ public class BajaPeliculaFK implements WindowListener, ActionListener
 			//CONECTAMOS A LA BASE DE DATOS
 			bd = new BaseDeDatos();
 			connection = bd.conectar();
-			String[] elegido = choPropietarios.getSelectedItem().split("-");
-			//SENTENCIA DE BORRADO DENTRO DE LA TABLA PELCULAS
+			String[] elegidoPro = choPropietarios.getSelectedItem().split("-");
+			String[] elegidoPeli = choPeliculas.getSelectedItem().split("-");
+
+			//SENTENCIA DE BORRADO DENTRO DE LA TABLA PELCULAS:
 			/*
 			 * AÑADIR EL NOMBRE DE LA PELICULA PARA QUE NO SE ELIMINEN TODAS LAS PELICULAS ENLAZADAS AL PROPIETARIO
-			 * YA QUE CON ESTA SENTENCIA LAS ELIMINAN TODAS SEGÚN EL IDFK AL QUE ESTAN ENLAZADOS.
+			 * YA QUE DE LO CONTRARIO, SI SOLO ENLAZAMOS SU FK, NOS ELIMINARA AUTOMATICAMENTE, TODAS LAS PELICULAS DE DICHO PROPIETARIO
 			 */
-			sentencia = "DELETE FROM peliculas WHERE idPropietarioFK1 = "+elegido[0];
+			sentencia = "DELETE FROM peliculas WHERE nombrePelicula =" + "\"" + elegidoPeli[1] + "\"" + " AND idPropietarioFK1 = "+elegidoPro[0];
 			try
 			{
 				statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
@@ -163,18 +161,20 @@ public class BajaPeliculaFK implements WindowListener, ActionListener
 				System.out.println(sentencia);
 				log.guardar(usuario, sentencia);
 				statement.executeUpdate(sentencia);
-				labelConfirmacionBajaPelicula.setText("Baja de Pelicula Correcta");
+				labelConfirmacionBajaPelicula.setText("Baja de Pelicula realizada, sino se elimino, no pertenecia a dicho propietario.");
 			}
+
 			catch (SQLException sqle)
 			{
 				log.guardar(usuario, "La Pelicula no pudo ser borrada.");
 				labelConfirmacionBajaPelicula.setText("Error en Baja");
 			}
+
 			finally
 			{
 				dialogConfirmacionBajaPelicula.setLayout(new FlowLayout());
 				dialogConfirmacionBajaPelicula.addWindowListener(this);
-				dialogConfirmacionBajaPelicula.setSize(250,100);
+				dialogConfirmacionBajaPelicula.setSize(450,100);
 				dialogConfirmacionBajaPelicula.setResizable(false);
 				dialogConfirmacionBajaPelicula.setLocationRelativeTo(null);
 				dialogConfirmacionBajaPelicula.add(labelConfirmacionBajaPelicula);
@@ -183,6 +183,7 @@ public class BajaPeliculaFK implements WindowListener, ActionListener
 		}
 
 	}
+	
 	public void windowClosing(WindowEvent e) 
 	{
 		if(frameBajaPelicula.isActive())

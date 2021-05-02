@@ -62,6 +62,7 @@ public class BajaCliente implements ActionListener, WindowListener
 					ResultSet.CONCUR_READ_ONLY);
 			rs = statement.executeQuery(sentencia);
 			choClientes.removeAll();
+			choClientes.add("Seleccionar un Cliente");
 			while(rs.next())
 			{
 				//BUSCAMOS LOS DATOS DE LOS CLIENTES
