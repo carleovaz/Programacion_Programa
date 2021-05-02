@@ -27,8 +27,8 @@ public class BajaPeliculaFK implements WindowListener, ActionListener
 	Label labelSeguroPelicula = new Label("¿Está seguro de querer borrar esta pelicula?");
 	Button botonSiSeguroPelicula = new Button("Sí");
 	Button botonNoSeguroPelicula = new Button("No");
-	Dialog dialogConfirmacionBajaPelicula = new Dialog(frameBajaPelicula, "Baja Cliente", true);
-	Label labelConfirmacionBajaPelicula = new Label("Baja de cliente realizada");
+	Dialog dialogConfirmacionBajaPelicula = new Dialog(frameBajaPelicula, "Baja pelicula", true);
+	Label labelConfirmacionBajaPelicula = new Label("Baja de pelicula realizada");
 
 	BaseDeDatos bd;
 	String sentencia = "";
@@ -69,9 +69,7 @@ public class BajaPeliculaFK implements WindowListener, ActionListener
 		}
 
 		catch (SQLException sqle)
-		{
-
-		}
+		{		}
 
 		bd = new BaseDeDatos();
 		connection = bd.conectar();
@@ -89,7 +87,6 @@ public class BajaPeliculaFK implements WindowListener, ActionListener
 				choPeliculas.add(rs.getInt("idPelicula")
 						+"-"+rs.getString("nombrePelicula") +"-"+rs.getString("directorPelicula")
 						+"-"+rs.getString("precioPelicula")+"-"+rs.getString("idPropietarioFK1")+"\n");
-
 			}
 		}
 
@@ -99,9 +96,11 @@ public class BajaPeliculaFK implements WindowListener, ActionListener
 		}
 
 		finally
-		{	}
+		{
+			
+		}
 
-		//AÑADIMOS EL FRAME DE DAR DE BAJA AL CLIENTE
+		//AÑADIMOS EL FRAME DE DAR DE BAJA LA PELICULA
 		frameBajaPelicula.add(labelMensajeBajaPelicula);
 		frameBajaPelicula.add(choPeliculas);
 		frameBajaPelicula.add(choPropietarios);
@@ -124,7 +123,7 @@ public class BajaPeliculaFK implements WindowListener, ActionListener
 	{
 		if(evento.getSource().equals(botonBorrarPelicula))
 		{
-			log.guardar(usuario, "Ha pulsado Borrar Cliente");
+			log.guardar(usuario, "Ha pulsado Borrar Pelicula");
 			dialogSeguroPelicula.setLayout(new FlowLayout());
 			dialogSeguroPelicula.addWindowListener(this);
 			dialogSeguroPelicula.setSize(270,100);
@@ -151,8 +150,12 @@ public class BajaPeliculaFK implements WindowListener, ActionListener
 			bd = new BaseDeDatos();
 			connection = bd.conectar();
 			String[] elegido = choPropietarios.getSelectedItem().split("-");
-			//SENTENCIA DE BORRADO DENTRO DE LA TABLA CLIENTES
-			sentencia = "DELETE FROM propietario WHERE idPropietarioFK1 = "+elegido[0];
+			//SENTENCIA DE BORRADO DENTRO DE LA TABLA PELCULAS
+			/*
+			 * AÑADIR EL NOMBRE DE LA PELICULA PARA QUE NO SE ELIMINEN TODAS LAS PELICULAS ENLAZADAS AL PROPIETARIO
+			 * YA QUE CON ESTA SENTENCIA LAS ELIMINAN TODAS SEGÚN EL IDFK AL QUE ESTAN ENLAZADOS.
+			 */
+			sentencia = "DELETE FROM peliculas WHERE idPropietarioFK1 = "+elegido[0];
 			try
 			{
 				statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
@@ -164,7 +167,7 @@ public class BajaPeliculaFK implements WindowListener, ActionListener
 			}
 			catch (SQLException sqle)
 			{
-				log.guardar(usuario, "La Pelicula no puede ser borrado, tiene enlazado algún dato que debes borrar primero.");
+				log.guardar(usuario, "La Pelicula no pudo ser borrada.");
 				labelConfirmacionBajaPelicula.setText("Error en Baja");
 			}
 			finally
