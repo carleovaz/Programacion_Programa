@@ -31,6 +31,7 @@ public class BajaCliente implements ActionListener, WindowListener
 	Button botonNoSeguroCliente = new Button("No");
 	Dialog dialogConfirmacionBajaCliente = new Dialog(frameBajaCliente, "Baja Cliente", true);
 	Label labelConfirmacionBajaCliente = new Label("Baja de cliente realizada");
+	Button cancelar = new Button("cancelar");
 
 	BaseDeDatos bd;
 	String sentencia = "";
@@ -80,6 +81,7 @@ public class BajaCliente implements ActionListener, WindowListener
 		frameBajaCliente.add(choClientes);
 		botonBorrarCliente.addActionListener(this);
 		frameBajaCliente.add(botonBorrarCliente);
+		frameBajaCliente.add(cancelar);
 
 		frameBajaCliente.setSize(600,150);
 		frameBajaCliente.setResizable(false);
@@ -151,6 +153,19 @@ public class BajaCliente implements ActionListener, WindowListener
 				dialogConfirmacionBajaCliente.setVisible(true);
 			}
 		}
+		else if (evento.getSource().equals(cancelar))
+		{
+			log.guardar(usuario, "Ha pulsado Cancelar Baja Cliente.");
+			if(frameBajaCliente.isActive())
+			{
+				frameBajaCliente.setVisible(false);
+			}
+			else
+			{
+				System.exit(0);	
+			}
+		}
+
 
 	}
 	public void windowClosing(WindowEvent e) 

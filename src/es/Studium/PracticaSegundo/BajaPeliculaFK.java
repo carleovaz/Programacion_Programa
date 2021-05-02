@@ -29,6 +29,8 @@ public class BajaPeliculaFK implements WindowListener, ActionListener
 	Button botonNoSeguroPelicula = new Button("No");
 	Dialog dialogConfirmacionBajaPelicula = new Dialog(frameBajaPelicula, "Baja pelicula", true);
 	Label labelConfirmacionBajaPelicula = new Label("Baja de pelicula realizada");
+	Label labelErrorPelicula = new Label("Error al borrar.");
+	Button cancelar = new Button("cancelar");
 
 	BaseDeDatos bd;
 	String sentencia = "";
@@ -49,7 +51,7 @@ public class BajaPeliculaFK implements WindowListener, ActionListener
 		frameBajaPelicula.add(labelMensajeBajaPelicula);
 		bd = new BaseDeDatos();
 		connection = bd.conectar();
-		//SELECCIONAMOS LAS PELICULAS
+		//SELECCIONAMOS EL PROPIETARIO
 		sentencia = "SELECT * FROM Propietario";
 		try
 		{
@@ -69,7 +71,9 @@ public class BajaPeliculaFK implements WindowListener, ActionListener
 		}
 
 		catch (SQLException sqle)
-		{		}
+		{		
+			
+		}
 
 		bd = new BaseDeDatos();
 		connection = bd.conectar();
@@ -102,6 +106,7 @@ public class BajaPeliculaFK implements WindowListener, ActionListener
 		frameBajaPelicula.add(choPropietarios);
 		botonBorrarPelicula.addActionListener(this);
 		frameBajaPelicula.add(botonBorrarPelicula);
+		frameBajaPelicula.add(cancelar);
 
 		frameBajaPelicula.setSize(450,180);
 		frameBajaPelicula.setResizable(false);
@@ -181,6 +186,19 @@ public class BajaPeliculaFK implements WindowListener, ActionListener
 				dialogConfirmacionBajaPelicula.setVisible(true);
 			}
 		}
+		else if (evento.getSource().equals(cancelar))
+		{
+			log.guardar(usuario, "Ha pulsado Cancelar Baja Pelicula.");
+			if(frameBajaPelicula.isActive())
+			{
+				frameBajaPelicula.setVisible(false);
+			}
+			else
+			{
+				System.exit(0);	
+			}
+		}
+
 
 	}
 	

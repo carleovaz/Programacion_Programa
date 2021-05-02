@@ -30,6 +30,7 @@ public class BajaAlquilerFK implements WindowListener, ActionListener
 	Dialog dialogConfirmacionBajaAlquiler = new Dialog(frameBajaAlquiler, "Baja pelicula", true);
 	Label labelConfirmacionBajaAlquiler = new Label("Baja de pelicula realizada");
 	Label labelErrorAlquiler = new Label("Error al borrar.");
+	Button cancelar = new Button("cancelar");
 
 	BaseDeDatos bd;
 	String sentencia = "";
@@ -50,7 +51,7 @@ public class BajaAlquilerFK implements WindowListener, ActionListener
 		frameBajaAlquiler.add(labelMensajeBajaPelicula);
 		bd = new BaseDeDatos();
 		connection = bd.conectar();
-		//SELECCIONAMOS LAS PELICULAS
+		//SELECCIONAMOS EL CLIENTE
 		sentencia = "SELECT * FROM clientes";
 
 		//CONECTAMOS A LA BASE DE DATOS
@@ -97,7 +98,7 @@ public class BajaAlquilerFK implements WindowListener, ActionListener
 		//EN EL CASO QUE FALLE
 		catch (SQLException sqle)
 		{
-			log.guardar(usuario, "La Pelicula no pudo ser borrada.");
+			log.guardar(usuario, "El Alquiler no pudo ser borrada.");
 			labelErrorAlquiler.setText("Error en Baja");
 		}
 
@@ -107,6 +108,7 @@ public class BajaAlquilerFK implements WindowListener, ActionListener
 		frameBajaAlquiler.add(choPeliculas);
 		botonBorrarAlquiler.addActionListener(this);
 		frameBajaAlquiler.add(botonBorrarAlquiler);
+		frameBajaAlquiler.add(cancelar);
 
 		frameBajaAlquiler.setSize(550,180);
 		frameBajaAlquiler.setResizable(false);
@@ -167,7 +169,7 @@ public class BajaAlquilerFK implements WindowListener, ActionListener
 
 			catch (SQLException sqle)
 			{
-				log.guardar(usuario, "La Pelicula no pudo ser borrada.");
+				log.guardar(usuario, "El Alquiler no pudo ser borrado.");
 				labelConfirmacionBajaAlquiler.setText("Error en Baja");
 			}
 
@@ -180,6 +182,19 @@ public class BajaAlquilerFK implements WindowListener, ActionListener
 				dialogConfirmacionBajaAlquiler.setLocationRelativeTo(null);
 				dialogConfirmacionBajaAlquiler.add(labelConfirmacionBajaAlquiler);
 				dialogConfirmacionBajaAlquiler.setVisible(true);
+			}
+		}
+		
+		else if (evento.getSource().equals(cancelar))
+		{
+			log.guardar(usuario, "Ha pulsado Cancelar Baja Alquiler.");
+			if(frameBajaAlquiler.isActive())
+			{
+				frameBajaAlquiler.setVisible(false);
+			}
+			else
+			{
+				System.exit(0);	
 			}
 		}
 

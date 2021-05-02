@@ -28,6 +28,7 @@ public class BajaPropietario implements ActionListener, WindowListener
 	Button botonNoSeguroPropietario = new Button("No");
 	Dialog dialogConfirmacionBajaPropietario = new Dialog(frameBajaPropietario, "Baja propietario", true);
 	Label labelConfirmacionBajaPropietario = new Label("Baja de propietario realizada");	
+	Button cancelar = new Button("cancelar");
 	
 	BaseDeDatos bd;
 	String sentencia = "";
@@ -69,6 +70,7 @@ public class BajaPropietario implements ActionListener, WindowListener
 		frameBajaPropietario.add(choPropietarios);
 		botonBorrarPropietario.addActionListener(this);
 		frameBajaPropietario.add(botonBorrarPropietario);
+		frameBajaPropietario.add(cancelar);
 		frameBajaPropietario.setSize(600,150);
 		frameBajaPropietario.setResizable(false);
 		frameBajaPropietario.setLocationRelativeTo(null);
@@ -135,6 +137,19 @@ public class BajaPropietario implements ActionListener, WindowListener
 				dialogConfirmacionBajaPropietario.setVisible(true);
 			}
 		}
+		else if (evento.getSource().equals(cancelar))
+		{
+			log.guardar(usuario, "Ha pulsado Cancelar Baja Propietario.");
+			if(frameBajaPropietario.isActive())
+			{
+				frameBajaPropietario.setVisible(false);
+			}
+			else
+			{
+				System.exit(0);	
+			}
+		}
+
 		
 	}
 	
