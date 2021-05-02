@@ -66,6 +66,7 @@ public class ConsultaAlquiler implements WindowListener, ActionListener
 			listadoAlquilerConsulta.setEditable(false);
 			ventanaAlquilerConsulta.add(listadoAlquilerConsulta);
 			ventanaAlquilerConsulta.add(botonPdf);
+			botonPdf.addActionListener(this);
 			ventanaAlquilerConsulta.setSize(250,200);
 			ventanaAlquilerConsulta.setResizable(false);
 			ventanaAlquilerConsulta.setLocationRelativeTo(null);

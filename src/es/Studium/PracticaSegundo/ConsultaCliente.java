@@ -66,7 +66,7 @@ public class ConsultaCliente implements WindowListener, ActionListener
 		listadoClientes.setEditable(false);
 		frameConsultaClientes.add(listadoClientes);
 		frameConsultaClientes.add(botonPdf);
-
+		botonPdf.addActionListener(this);
 		frameConsultaClientes.setSize(280,160);
 		frameConsultaClientes.setResizable(false);
 		frameConsultaClientes.setLocationRelativeTo(null);

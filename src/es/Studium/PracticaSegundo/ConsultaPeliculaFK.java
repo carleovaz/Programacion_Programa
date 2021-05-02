@@ -68,6 +68,7 @@ public class ConsultaPeliculaFK implements WindowListener, ActionListener
 			listadoPeliculasConsulta.setEditable(false);
 			ventanaPeliculasConsulta.add(listadoPeliculasConsulta);
 			ventanaPeliculasConsulta.add(botonPdf);
+			botonPdf.addActionListener(this);
 			ventanaPeliculasConsulta.setSize(250,200);
 			ventanaPeliculasConsulta.setResizable(false);
 			ventanaPeliculasConsulta.setLocationRelativeTo(null);

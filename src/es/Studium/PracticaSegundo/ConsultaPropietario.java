@@ -60,7 +60,7 @@ public class ConsultaPropietario implements WindowListener, ActionListener
 		}
 		frameConsultaPropietarios.add(listadoPropietarios);
 		frameConsultaPropietarios.add(botonPdf);
-
+		botonPdf.addActionListener(this);
 		frameConsultaPropietarios.setSize(280,160);
 		frameConsultaPropietarios.setResizable(false);
 		frameConsultaPropietarios.setLocationRelativeTo(null);
