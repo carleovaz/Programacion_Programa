@@ -152,7 +152,7 @@ public class BajaAlquilerFK implements WindowListener, ActionListener
 			connection = bd.conectar();
 			String[] elegidoClienteFK = choClientes.getSelectedItem().split("-");
 			String[] elegidoPeliculaFK = choPeliculas.getSelectedItem().split("-");
-			sentencia = "DELETE FROM alquileres WHERE idClientesFK2 =" + elegidoClienteFK[0] + " AND idPeliculaFK3 = "+ elegidoPeliculaFK[0];
+			sentencia = "DELETE FROM alquileres WHERE idClientesFK2 =" + elegidoClienteFK[0] + " AND idPeliculasFK3 = "+ elegidoPeliculaFK[0];
 
 
 			try
@@ -162,7 +162,7 @@ public class BajaAlquilerFK implements WindowListener, ActionListener
 				System.out.println(sentencia);
 				log.guardar(usuario, sentencia);
 				statement.executeUpdate(sentencia);
-				labelConfirmacionBajaAlquiler.setText("Baja de Alquiler realizada.");
+				labelConfirmacionBajaAlquiler.setText("Baja de Pelicula realizada, sino se elimino, no pertenecia a dicho Cliente.");
 			}
 
 			catch (SQLException sqle)

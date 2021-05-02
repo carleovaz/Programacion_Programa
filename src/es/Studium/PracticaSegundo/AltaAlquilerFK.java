@@ -54,7 +54,7 @@ public class AltaAlquilerFK implements WindowListener, ActionListener
 		botonCancelarAltaAlquiler.addActionListener(this);
 		frameAltaAlquiler.add(botonCancelarAltaAlquiler);
 		
-		frameAltaAlquiler.setSize(620,180);
+		frameAltaAlquiler.setSize(580,180);
 		frameAltaAlquiler.setResizable(false);
 		frameAltaAlquiler.setVisible(true);
 		frameAltaAlquiler.setLocationRelativeTo(null);
