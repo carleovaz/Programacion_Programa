@@ -98,7 +98,7 @@ public class AltaPeliculaFK implements WindowListener, ActionListener
 	{
 		if(evento.getSource().equals(botonAceptar))
 		{
-			log.guardar(usuario, "Ha pulsado Aceptar Alta Cliente.");
+			log.guardar(usuario, "Ha pulsado Aceptar Alta Pelicula.");
 			bd = new BaseDeDatos();
 			connection = bd.conectar();
 			try

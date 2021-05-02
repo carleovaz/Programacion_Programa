@@ -46,7 +46,10 @@ public class Programa_Gestion implements WindowListener, ActionListener
 	MenuItem menuItemAltaPropietario = new MenuItem("Alta");
 	MenuItem menuItemBajaPropietario = new MenuItem("Baja");
 	MenuItem menuItemModificacionPropietario = new MenuItem("Modificación");
-	MenuItem menuItemConsultaPropietario = new MenuItem("Consulta");	
+	MenuItem menuItemConsultaPropietario = new MenuItem("Consulta");
+	
+	Menu menuAyuda = new Menu ("Ayuda");
+	MenuItem menuItemAyuda = new MenuItem("Manual");
 
 	//CONEXION A LA BASE DE DATOS
 	BaseDeDatos bd;
@@ -106,6 +109,9 @@ public class Programa_Gestion implements WindowListener, ActionListener
 			menuPropietario.add(menuItemConsultaPropietario);
 			menuItemModificacionPropietario.addActionListener(this);
 			menuPropietario.add(menuItemModificacionPropietario);
+			
+			barraMenu.add(menuAyuda);
+			menuItemAyuda.addActionListener(this);
 		}
 		else if(usuario.equals("Usuario"))//SI ES USUARIO
 		{
@@ -127,7 +133,7 @@ public class Programa_Gestion implements WindowListener, ActionListener
 		}
 
 		//AÑADIMOS FUNCIONALIDAD A LA VENTANA PRINCIPAL
-		ventanaPrincipal.setSize(300,200);
+		ventanaPrincipal.setSize(350,250);
 		ventanaPrincipal.setVisible(true);
 		ventanaPrincipal.setResizable(false);
 		ventanaPrincipal.setLocationRelativeTo(null);
@@ -205,7 +211,7 @@ public class Programa_Gestion implements WindowListener, ActionListener
 		else if(evento.getSource().equals(menuItemBajaPelicula))
 		{
 			log.guardar(usuario, "Ha clicado en Baja Pelicula.");
-			new BajaPelicula(usuario);
+			new BajaPeliculaFK(usuario);
 		}
 		//CONSULTA PELICULAS
 		else if(evento.getSource().equals(menuItemConsultaPelicula))
@@ -232,7 +238,7 @@ public class Programa_Gestion implements WindowListener, ActionListener
 		else if(evento.getSource().equals(menuItemBajaAlquiler))
 		{
 			log.guardar(usuario, "Ha clicado en Baja Alquiler.");
-			new BajaAlquiler(usuario);
+			new BajaAlquilerFK(usuario);
 		}
 		
 		//CONSULTA ALQUILER

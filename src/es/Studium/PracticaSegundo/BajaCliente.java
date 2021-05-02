@@ -48,7 +48,7 @@ public class BajaCliente implements ActionListener, WindowListener
 		bd = new BaseDeDatos();
 		connection = bd.conectar();
 
-		sentencia = "SELECT * FROM clientes";
+
 		frameBajaCliente.setLayout(new FlowLayout());
 		frameBajaCliente.add(labelMensajeBajaCliente);
 		bd = new BaseDeDatos();
@@ -75,6 +75,7 @@ public class BajaCliente implements ActionListener, WindowListener
 		{}
 		
 		//AÑADIMOS EL FRAME DE DAR DE BAJA AL CLIENTE
+		frameBajaCliente.add(labelMensajeBajaCliente);
 		frameBajaCliente.add(choClientes);
 		botonBorrarCliente.addActionListener(this);
 		frameBajaCliente.add(botonBorrarCliente);
@@ -86,7 +87,7 @@ public class BajaCliente implements ActionListener, WindowListener
 		frameBajaCliente.setVisible(true);
 
 		frameBajaCliente.setLayout(new FlowLayout());
-		frameBajaCliente.add(labelMensajeBajaCliente);
+		
 	}
 
 	@Override
