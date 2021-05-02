@@ -203,6 +203,7 @@ public class BajaAlquilerFK implements WindowListener, ActionListener
 
 	public void windowClosing(WindowEvent e) 
 	{
+		log.guardar(usuario, "Ha salido de Baja Alquiler");
 		if(frameBajaAlquiler.isActive())
 		{
 			frameBajaAlquiler.setVisible(false);

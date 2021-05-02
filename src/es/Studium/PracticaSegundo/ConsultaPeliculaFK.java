@@ -49,7 +49,7 @@ public class ConsultaPeliculaFK implements WindowListener, ActionListener
 			rs = statement.executeQuery(sentencia);
 			listadoPeliculasConsulta.selectAll();
 			listadoPeliculasConsulta.setText("");
-			listadoPeliculasConsulta.append("id\tNombre   \tDirector   \tPrecio \n");
+			listadoPeliculasConsulta.append("id\tNombre   \tDirector   \tPrecio   \tidPropietarioFK1 \n");
 			while(rs.next())
 			{
 				listadoPeliculasConsulta.append(rs.getInt("idPelicula")

@@ -260,6 +260,7 @@ public class Programa_Gestion implements WindowListener, ActionListener
 	public void windowClosing(WindowEvent arg0) 
 
 	{
+		
 		if(ventanaPrincipal.isActive())
 		{	
 			log.guardar(usuario, "Ha cerrado sesión");
