@@ -74,6 +74,7 @@ public class BajaPropietario implements ActionListener, WindowListener
 		frameBajaPropietario.setSize(600,150);
 		frameBajaPropietario.setResizable(false);
 		frameBajaPropietario.setLocationRelativeTo(null);
+		cancelar.addActionListener(this);
 		frameBajaPropietario.addWindowListener(this);
 		frameBajaPropietario.setVisible(true);
 	}
@@ -95,6 +96,7 @@ public class BajaPropietario implements ActionListener, WindowListener
 			dilogSeguroPropietario.add(botonSiSeguroPropietario);
 			botonNoSeguroPropietario.addActionListener(this);
 			dilogSeguroPropietario.add(botonNoSeguroPropietario);
+			
 			dilogSeguroPropietario.setVisible(true);
 		}
 		//AÑADIMOS FUNCIONALIDAD AL BOTON DE SEGURO NO

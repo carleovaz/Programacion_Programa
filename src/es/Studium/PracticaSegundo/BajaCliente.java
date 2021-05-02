@@ -87,6 +87,7 @@ public class BajaCliente implements ActionListener, WindowListener
 		frameBajaCliente.setResizable(false);
 		frameBajaCliente.setLocationRelativeTo(null);
 		frameBajaCliente.addWindowListener(this);
+		cancelar.addActionListener(this);
 		frameBajaCliente.setVisible(true);
 
 		frameBajaCliente.setLayout(new FlowLayout());
@@ -170,6 +171,7 @@ public class BajaCliente implements ActionListener, WindowListener
 	}
 	public void windowClosing(WindowEvent e) 
 	{
+		log.guardar(usuario, "Ha salido de Baja Cliente.");
 		if(frameBajaCliente.isActive())
 		{
 			frameBajaCliente.setVisible(false);

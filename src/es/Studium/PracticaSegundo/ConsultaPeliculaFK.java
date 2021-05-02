@@ -81,6 +81,7 @@ public class ConsultaPeliculaFK implements WindowListener, ActionListener
 	@Override
 	public void windowClosing(WindowEvent evento) 
 	{
+		log.guardar(usuario, "Ha salido de Consulta Pelicula.");
 		if(ventanaPeliculasConsulta.isActive())
 		{
 			ventanaPeliculasConsulta.setVisible(false);

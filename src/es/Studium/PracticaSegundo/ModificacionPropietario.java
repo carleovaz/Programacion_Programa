@@ -183,6 +183,7 @@ public class ModificacionPropietario implements ActionListener, WindowListener
 	@Override
 	public void windowClosing(WindowEvent evento) 
 	{
+		log.guardar(usuario, "Ha salido de Modificación Propietario.");
 		if(frameModificacionPropietario.isActive())
 		{
 			frameModificacionPropietario.setVisible(false);

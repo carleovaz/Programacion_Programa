@@ -78,6 +78,7 @@ public class ConsultaAlquiler implements WindowListener, ActionListener
 
 	public void windowClosing(WindowEvent e)
 	{
+		log.guardar(usuario, "Ha salido de Consulta Alquiler.");
 		if(ventanaAlquilerConsulta.isActive())
 		{
 			ventanaAlquilerConsulta.setVisible(false);

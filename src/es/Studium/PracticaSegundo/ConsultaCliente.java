@@ -96,6 +96,7 @@ public class ConsultaCliente implements WindowListener, ActionListener
 	@Override
 	public void windowClosing(WindowEvent arg0) 
 	{
+		log.guardar(usuario, "Ha salido de Consulta Cliente.");
 		if(frameConsultaClientes.isActive())
 		{
 			frameConsultaClientes.setVisible(false);

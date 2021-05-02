@@ -189,6 +189,7 @@ public class ModificacionCliente implements ActionListener, WindowListener
 	@Override
 	public void windowClosing(WindowEvent e) 
 	{
+		log.guardar(usuario, "Ha salido de Modificación Cliente.");
 		if(frameModificacionCliente.isActive())
 		{
 			frameModificacionCliente.setVisible(false);

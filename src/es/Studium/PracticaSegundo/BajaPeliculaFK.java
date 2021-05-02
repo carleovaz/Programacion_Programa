@@ -107,6 +107,7 @@ public class BajaPeliculaFK implements WindowListener, ActionListener
 		botonBorrarPelicula.addActionListener(this);
 		frameBajaPelicula.add(botonBorrarPelicula);
 		frameBajaPelicula.add(cancelar);
+		cancelar.addActionListener(this);
 
 		frameBajaPelicula.setSize(450,180);
 		frameBajaPelicula.setResizable(false);
@@ -136,6 +137,7 @@ public class BajaPeliculaFK implements WindowListener, ActionListener
 			botonNoSeguroPelicula.addActionListener(this);
 			dialogSeguroPelicula.add(botonNoSeguroPelicula);
 			dialogSeguroPelicula.setVisible(true);
+			
 		}
 
 		else if(evento.getSource().equals(botonNoSeguroPelicula))
@@ -204,6 +206,7 @@ public class BajaPeliculaFK implements WindowListener, ActionListener
 	
 	public void windowClosing(WindowEvent e) 
 	{
+		log.guardar(usuario, "Ha salido de Baja Pelicula.");
 		if(frameBajaPelicula.isActive())
 		{
 			frameBajaPelicula.setVisible(false);

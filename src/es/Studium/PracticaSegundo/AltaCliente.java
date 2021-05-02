@@ -147,6 +147,7 @@ public class AltaCliente implements ActionListener, WindowListener
 	@Override
 	public void windowClosing(WindowEvent arg0) 
 	{
+		log.guardar(usuario, "Ha salido de Alta Cliente Cliente.");
 		if(frameAltaCliente.isActive())
 		{
 			frameAltaCliente.setVisible(false);

@@ -50,7 +50,7 @@ public class Login implements WindowListener, ActionListener //IMPLEMENTACIÓN DE
 	//AÑDIMOS LOS OBJETOS DEL LOGIN Y SUS CARACTERISTICAS
 	public Login()
 	{
-
+		
 		login.setLayout(new FlowLayout());
 
 		login.add(labelUsuario);
@@ -82,6 +82,7 @@ public class Login implements WindowListener, ActionListener //IMPLEMENTACIÓN DE
 		if(botonPulsado.getSource().equals(botonEntrar))
 		{
 			//SE CONECTARA CON NUESTRA BASE DE DATOS Y BUSCARA CON LA SENTENCIA ESPECIFICA
+			log.guardar(usuario, "Ha iniciado sesión.");
 			connection = conectar();
 			sentencia = "SELECT * FROM usuarios WHERE nombreUsuario='"
 					+textoUsuario.getText()+"' AND contraseñaUsuario = SHA2('"
@@ -124,6 +125,7 @@ public class Login implements WindowListener, ActionListener //IMPLEMENTACIÓN DE
 
 		if (botonPulsado.getSource().equals(botonBorrar))
 		{
+			log.guardar(usuario, "Ha limpiado los textos.");
 			textoUsuario.selectAll();
 			textoUsuario.setText("");
 			textoClave.selectAll();

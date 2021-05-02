@@ -159,6 +159,7 @@ public class AltaPeliculaFK implements WindowListener, ActionListener
 	@Override
 	public void windowClosing(WindowEvent arg0) 
 	{
+		log.guardar(usuario, "Ha salido de Alta Pelicula.");
 		FrameAltaPelicula.setVisible(false);
 
 	}

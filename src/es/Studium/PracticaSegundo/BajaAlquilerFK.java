@@ -109,6 +109,7 @@ public class BajaAlquilerFK implements WindowListener, ActionListener
 		botonBorrarAlquiler.addActionListener(this);
 		frameBajaAlquiler.add(botonBorrarAlquiler);
 		frameBajaAlquiler.add(cancelar);
+		cancelar.addActionListener(this);
 
 		frameBajaAlquiler.setSize(550,180);
 		frameBajaAlquiler.setResizable(false);
