@@ -245,7 +245,7 @@ public class Programa_Gestion implements WindowListener, ActionListener
 		else if(evento.getSource().equals(menuItemConsultaAlquiler))
 		{
 			log.guardar(usuario, "Ha clicado en Consulta Alquiler.");
-			new ConsultaAlquiler(usuario);
+			new ConsultaAlquilerFK(usuario);
 		}
 		
 		//MODIFICACION ALQUILER

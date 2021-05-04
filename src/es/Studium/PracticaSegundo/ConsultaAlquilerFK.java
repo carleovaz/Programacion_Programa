@@ -17,7 +17,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class ConsultaAlquiler implements WindowListener, ActionListener
+public class ConsultaAlquilerFK implements WindowListener, ActionListener
 {
 	Frame ventanaAlquilerConsulta = new Frame("Consulta");
 	TextArea listadoAlquilerConsulta = new TextArea(5, 30);
@@ -32,12 +32,24 @@ public class ConsultaAlquiler implements WindowListener, ActionListener
 	Statement statement = null;
 	ResultSet rs = null;
 
-	public ConsultaAlquiler(String usuario)
+	public ConsultaAlquilerFK(String usuario)
 	{
 		this.usuario = usuario;
 		bd = new BaseDeDatos();
 		connection = bd.conectar();
 		sentencia = "SELECT * FROM alquileres";
+//		SELECT
+//		idAlquiler,
+//	    nombreCliente AS 'Cliente',
+//	    nombrePelicula AS 'Pelicula'
+//			FROM
+//				alquileres
+//	    	JOIN 
+//	    	clientes ON alquileres.idClientesFK2 = clientes.idCliente
+//	    	JOIN
+//	    	peliculas ON alquileres.idPeliculasFK3 = peliculas.idPelicula
+//			ORDER BY 1;
+
 		
 		try
 		{

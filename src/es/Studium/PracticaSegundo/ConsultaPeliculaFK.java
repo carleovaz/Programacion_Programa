@@ -41,6 +41,18 @@ public class ConsultaPeliculaFK implements WindowListener, ActionListener
 		bd = new BaseDeDatos();
 		connection = bd.conectar();
 		sentencia = "SELECT*FROM peliculas";
+//		SELECT * FROM peliculas;
+//		SELECT
+//			idPelicula ,
+//			nombrePropietario AS 'Propietario',
+//		    nombrePelicula AS 'Pelicula',
+//		    directorPelicula AS 'Director',
+//		    precioPelicula AS 'Precio'
+//		FROM
+//			peliculas
+//		    JOIN
+//		    propietario ON peliculas.IdPropietarioFK1 = propietario.idPropietario
+//		ORDER BY 1;
 
 		try
 		{
