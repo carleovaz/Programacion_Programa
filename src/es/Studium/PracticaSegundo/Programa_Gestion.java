@@ -112,6 +112,7 @@ public class Programa_Gestion implements WindowListener, ActionListener
 			
 			barraMenu.add(menuAyuda);
 			menuItemAyuda.addActionListener(this);
+			menuAyuda.add(menuItemAyuda);
 		}
 		else if(usuario.equals("Usuario"))//SI ES USUARIO
 		{
@@ -130,6 +131,10 @@ public class Programa_Gestion implements WindowListener, ActionListener
 			barraMenu.add(menuPropietario);
 			menuItemAltaPropietario.addActionListener(this);
 			menuPropietario.add(menuItemAltaPropietario);
+			
+			barraMenu.add(menuAyuda);
+			menuItemAyuda.addActionListener(this);
+			menuAyuda.add(menuItemAyuda);
 		}
 
 		//AÑADIMOS FUNCIONALIDAD A LA VENTANA PRINCIPAL
@@ -255,12 +260,14 @@ public class Programa_Gestion implements WindowListener, ActionListener
 			new ModificacionAlquiler(usuario);
 		}
 		
-		//MODIFICACION ALQUILER
+		//MENU AYUDA ACCESO MANUAL
 		else if(evento.getSource().equals(menuItemAyuda))
 		{
-			log.guardar(usuario, "Ha clicado en Ayuda.");
+			log.guardar(usuario, "Ha accedido al manual de ayuda.");
 			new Ayuda(usuario);
 		}
+		
+
 	}
 
 	@Override
