@@ -254,6 +254,13 @@ public class Programa_Gestion implements WindowListener, ActionListener
 			log.guardar(usuario, "Ha clicado en Modificacion Alquiler.");
 			new ModificacionAlquiler(usuario);
 		}
+		
+		//MODIFICACION ALQUILER
+		else if(evento.getSource().equals(menuItemAyuda))
+		{
+			log.guardar(usuario, "Ha clicado en Ayuda.");
+			new Ayuda(usuario);
+		}
 	}
 
 	@Override

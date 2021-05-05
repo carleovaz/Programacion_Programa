@@ -40,19 +40,7 @@ public class ConsultaPeliculaFK implements WindowListener, ActionListener
 		//CONECTAMOS A LA BASE DE DATOS
 		bd = new BaseDeDatos();
 		connection = bd.conectar();
-		sentencia = "SELECT*FROM peliculas";
-//		SELECT * FROM peliculas;
-//		SELECT
-//			idPelicula ,
-//			nombrePropietario AS 'Propietario',
-//		    nombrePelicula AS 'Pelicula',
-//		    directorPelicula AS 'Director',
-//		    precioPelicula AS 'Precio'
-//		FROM
-//			peliculas
-//		    JOIN
-//		    propietario ON peliculas.IdPropietarioFK1 = propietario.idPropietario
-//		ORDER BY 1;
+		sentencia = "SELECT idPelicula , nombrePropietario, nombrePelicula, directorPelicula, precioPelicula FROM peliculas JOIN propietario ON peliculas.IdPropietarioFK1 = propietario.idPropietario";
 
 		try
 		{
@@ -61,12 +49,12 @@ public class ConsultaPeliculaFK implements WindowListener, ActionListener
 			rs = statement.executeQuery(sentencia);
 			listadoPeliculasConsulta.selectAll();
 			listadoPeliculasConsulta.setText("");
-			listadoPeliculasConsulta.append("id\tNombre   \tDirector   \tPrecio   \tidPropietarioFK1 \n");
+			listadoPeliculasConsulta.append("id\tNombre   \tDirector   \tPrecio   \tNombre Propietario \n");
 			while(rs.next())
 			{
 				listadoPeliculasConsulta.append(rs.getInt("idPelicula")
 						+"-"+rs.getString("nombrePelicula") +"-"+rs.getString("directorPelicula")
-						+"-"+rs.getString("precioPelicula")+"-"+rs.getString("idPropietarioFK1")+"\n");
+						+"-"+rs.getString("precioPelicula")+"-"+rs.getString("nombrePropietario")+"\n");
 			}
 		}
 		//EN EL CASO QUE FALLE LA CONSULTA

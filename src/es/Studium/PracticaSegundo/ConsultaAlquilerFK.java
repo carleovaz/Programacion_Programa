@@ -37,18 +37,7 @@ public class ConsultaAlquilerFK implements WindowListener, ActionListener
 		this.usuario = usuario;
 		bd = new BaseDeDatos();
 		connection = bd.conectar();
-		sentencia = "SELECT * FROM alquileres";
-//		SELECT
-//		idAlquiler,
-//	    nombreCliente AS 'Cliente',
-//	    nombrePelicula AS 'Pelicula'
-//			FROM
-//				alquileres
-//	    	JOIN 
-//	    	clientes ON alquileres.idClientesFK2 = clientes.idCliente
-//	    	JOIN
-//	    	peliculas ON alquileres.idPeliculasFK3 = peliculas.idPelicula
-//			ORDER BY 1;
+		sentencia = "SELECT idAlquiler, nombreCliente, nombrePelicula FROM alquileres JOIN  clientes ON alquileres.idClientesFK2 = clientes.idCliente JOIN peliculas ON alquileres.idPeliculasFK3 = peliculas.idPelicula";
 
 		
 		try
@@ -60,11 +49,11 @@ public class ConsultaAlquilerFK implements WindowListener, ActionListener
 			rs = statement.executeQuery(sentencia);
 			listadoAlquilerConsulta.selectAll();
 			listadoAlquilerConsulta.setText("");
-			listadoAlquilerConsulta.append("id\tId Clientes\tId Peliculas\n");
+			listadoAlquilerConsulta.append("id\tNombre Cliente\tNombre Pelicula\n");
 			while(rs.next())
 			{
 				listadoAlquilerConsulta.append(rs.getInt("idAlquiler")
-						+"-"+rs.getString("idClientesFK2") +"-"+rs.getString("idPeliculasFK3")+"\n");
+						+"-"+rs.getString("nombreCliente") +"-"+rs.getString("nombrePelicula")+"\n");
 			}
 		}
 		//EN EL CASO QUE FALLE
