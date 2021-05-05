@@ -40,7 +40,7 @@ public class ModificacionPelicula implements ActionListener, WindowListener
 	Button botonModificacionPeliculaAceptar = new Button("Aceptar");
 	Button botonModificacionPeliculaCancelar = new Button("Cancelar");
 	Dialog dialogConfirmarModPelicula = new Dialog(frameModificacionPeliculaEdit, "Modificación", true);
-	Label labelMensajeModPelicula = new Label("Modificación de Propietario Completada");
+	Label labelMensajeModPelicula = new Label("Modificación de Pelicula Completada");
 
 	BaseDeDatos bd;
 	String sentencia = "";

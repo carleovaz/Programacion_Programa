@@ -20,7 +20,7 @@ public class ModificacionAlquiler implements ActionListener, WindowListener
 {
 	//FRAME DE MODIFICACIÓN ALQUILER
 	Frame frameModificacionAlquiler = new Frame("Modificación");
-	Label  labelMensajeModificarAlquiler = new Label("Seleccionar la pelicula a Editar");
+	Label  labelMensajeModificarAlquiler = new Label("Selecciona el alquiler a Editar");
 	Choice choModificarAlquiler = new Choice();
 	Button botonModificarAlquiler = new Button("Editar");
 	Button cancelar = new Button("Cancelar");
