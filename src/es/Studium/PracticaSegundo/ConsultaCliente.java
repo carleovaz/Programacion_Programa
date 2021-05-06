@@ -4,6 +4,7 @@
 package es.Studium.PracticaSegundo;
 
 import java.awt.Button;
+import java.awt.Desktop;
 import java.awt.FlowLayout;
 import java.awt.Frame;
 import java.awt.TextArea;
@@ -11,10 +12,23 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.FontFactory;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
 
 public class ConsultaCliente implements WindowListener, ActionListener
 {
@@ -75,11 +89,80 @@ public class ConsultaCliente implements WindowListener, ActionListener
 	}
 
 	@Override
+	//USO DEL BOTON PDF
 	public void actionPerformed(ActionEvent evento) 
 	{
 		if(evento.getSource().equals(botonPdf))
 		{
 			log.guardar(usuario, "Ha solicitado el pdf de consulta de alquileres.");
+			Document documentoPDF = new Document();
+			try
+			{
+
+				FileOutputStream archivoPDF = new FileOutputStream ("Consulta_Clientes.pdf");
+				PdfWriter.getInstance(documentoPDF, archivoPDF).setInitialLeading(22);
+				documentoPDF.open();
+				Paragraph Nombre = new Paragraph("Consulta Clientes",FontFactory.getFont("times new roman",20, Font.ITALIC, BaseColor.BLACK));
+				Nombre.setAlignment(Element.ALIGN_CENTER);
+				documentoPDF.add(Nombre);
+				PdfPTable tabla = new PdfPTable(5);
+				tabla.setSpacingBefore(20);
+				tabla.addCell("id");
+				tabla.addCell("Nombre");
+				tabla.addCell("Dirección");
+				tabla.addCell("DNI");
+				tabla.addCell("Correo");
+				bd = new BaseDeDatos();
+				connection = bd.conectar();
+				sentencia = "SELECT*FROM clientes";
+
+				try
+				{
+					statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
+							ResultSet.CONCUR_READ_ONLY); 
+					rs = statement.executeQuery(sentencia);
+					while(rs.next())
+					{
+						tabla.addCell(rs.getString(1));
+						tabla.addCell(rs.getString(2));
+						tabla.addCell(rs.getString(3));
+						tabla.addCell(rs.getString(4));
+						tabla.addCell(rs.getString(5));
+					}
+
+				}
+				catch (SQLException sqle)
+				{
+
+				}
+				bd.desconectar(connection);
+				documentoPDF.add(tabla);
+				documentoPDF.close();
+
+				try
+				{
+					File pathPDF = new File ("Consulta_Clientes.pdf");
+					Desktop.getDesktop().open(pathPDF);
+				}
+
+				catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+			}
+			
+			catch (DocumentException e) 
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			catch (FileNotFoundException e1) 
+			{
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}
 
 	}

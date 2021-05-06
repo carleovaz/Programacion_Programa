@@ -3,5 +3,17 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="C:/Users/carlo/OneDrive/Escritorio/GRUPO STUDIUM - DAW/01 PRIMER AÑO/PROGRAMACIÓN/SEGUNDO TRIMESTRE/PROGRAMACION SEGUNDO TRIMESTRE/Tema7/mysql-connector-java-8.0.23.jar"/>
+	<classpathentry kind="lib" path="C:/Users/carlo/OneDrive/Escritorio/carpeta/itext5-itextpdf-5.5.11.jar"/>
+	<classpathentry kind="lib" path="C:/Users/carlo/OneDrive/Escritorio/carpeta/itext5-itextpdf-5.5.11-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/carlo/OneDrive/Escritorio/carpeta/itext5-itextpdf-5.5.11-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/carlo/OneDrive/Escritorio/carpeta/itext5-itext-pdfa-5.5.11.jar"/>
+	<classpathentry kind="lib" path="C:/Users/carlo/OneDrive/Escritorio/carpeta/itext5-itext-pdfa-5.5.11-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/carlo/OneDrive/Escritorio/carpeta/itext5-itext-pdfa-5.5.11-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/carlo/OneDrive/Escritorio/carpeta/itext5-itext-xtra-5.5.11.jar"/>
+	<classpathentry kind="lib" path="C:/Users/carlo/OneDrive/Escritorio/carpeta/itext5-itext-xtra-5.5.11-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/carlo/OneDrive/Escritorio/carpeta/itext5-itext-xtra-5.5.11-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/carlo/OneDrive/Escritorio/carpeta/itext5-xmlworker-5.5.11.jar"/>
+	<classpathentry kind="lib" path="C:/Users/carlo/OneDrive/Escritorio/carpeta/itext5-xmlworker-5.5.11-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/carlo/OneDrive/Escritorio/carpeta/itext5-xmlworker-5.5.11-sources.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
