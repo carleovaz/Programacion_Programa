@@ -98,22 +98,29 @@ public class ConsultaCliente implements WindowListener, ActionListener
 			Document documentoPDF = new Document();
 			try
 			{
-
+				//CREAMOS EL ARCHIVO PDF Y LE AGREGAMOS UN NOMBRE
 				FileOutputStream archivoPDF = new FileOutputStream ("Consulta_Clientes.pdf");
-				PdfWriter.getInstance(documentoPDF, archivoPDF).setInitialLeading(22);
+				//INDICAMOS EL ESPACIO ENTRE LINEAS Y LLAMAMOS A DOCUMENTOPDF Y ARCHIVOPDF
+				PdfWriter.getInstance(documentoPDF, archivoPDF).setInitialLeading(20);
+				//LO ABRIMOS
 				documentoPDF.open();
-				Paragraph Nombre = new Paragraph("Consulta Clientes",FontFactory.getFont("times new roman",20, Font.ITALIC, BaseColor.BLACK));
-				Nombre.setAlignment(Element.ALIGN_CENTER);
-				documentoPDF.add(Nombre);
+				//AGREGAMOS EL NOMBRE QUE SALDRA EN EL ENCABEZADO
+				Paragraph nombreEncabezado = new Paragraph("Consulta Clientes",FontFactory.getFont("times new roman",18, Font.NORMAL, BaseColor.BLACK));
+				nombreEncabezado.setAlignment(Element.ALIGN_CENTER);
+				documentoPDF.add(nombreEncabezado);
 				PdfPTable tabla = new PdfPTable(5);
+				//ESTABLECEMOS EL ESPACIO ENTRE EL NOMBRE DE LA CONSULTA Y LA TABLA
 				tabla.setSpacingBefore(20);
+				//AÑADIMOS LAS TABLAS UNA POR UNA
 				tabla.addCell("id");
 				tabla.addCell("Nombre");
 				tabla.addCell("Dirección");
 				tabla.addCell("DNI");
 				tabla.addCell("Correo");
+				//CONECTAMOS CON NUESTRA BASE DE DATOS
 				bd = new BaseDeDatos();
 				connection = bd.conectar();
+				//SELECCIONAMOS LA TABLA EN CUESTIÓN
 				sentencia = "SELECT*FROM clientes";
 
 				try
@@ -151,13 +158,13 @@ public class ConsultaCliente implements WindowListener, ActionListener
 				}
 
 			}
-			
+
 			catch (DocumentException e) 
 			{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
+
 			catch (FileNotFoundException e1) 
 			{
 				// TODO Auto-generated catch block
