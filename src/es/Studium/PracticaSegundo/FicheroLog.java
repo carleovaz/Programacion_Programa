@@ -14,22 +14,23 @@ public class FicheroLog
 {
 	public void guardar(String usuario, String mensaje)
 	{
+		//AÑADIMOS EL OBJETO FECHA
 		Date fechaActual = new Date();
+		//AÑADIMOS EL FORMATO CON EL QUE QUEREMOS QUE SALGA LA FECHA
 		SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-		//FileWriter también puede lanzar una excepción
 		try
 		{
-			// Destino de los datos
+			//LUGAR DONDE IRAN TODOS LOS MOVIMIENTOS DE LOS USUARIOS
 			FileWriter fw = new FileWriter("Log.log", true);
-			// Buffer de escritura
+			//BUFFER ESCRITURA
 			BufferedWriter bw = new BufferedWriter(fw);
-			// Objeto para la escritura
+			//OBJETO PARA LA ESCRITURA
 			PrintWriter salida = new PrintWriter(bw);
-			//Guardamos la primera línea
+			//VAMOS GUARDANDO LAS LINEAS
 			salida.print("[" + formato.format(fechaActual) + "]");
 			salida.print("[" + usuario + "]");
 			salida.println("[" + mensaje + "]");
-			//Cerrar el objeto salida, el objeto bw y el fw
+			//CIERRES
 			salida.close();
 			bw.close();
 			fw.close();

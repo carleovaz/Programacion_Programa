@@ -12,7 +12,7 @@ public class Ayuda
 		this.usuario = usuario;
 		try 
 		{ 
-			//el exe es fundamental
+			//EJECUTA EL ARCHIVO DE AYUDA
 			Runtime.getRuntime().exec("hh.exe Ayuda.chm"); 
 		} 
 		catch (IOException e) 
@@ -20,8 +20,5 @@ public class Ayuda
 			e.printStackTrace(); 
 		} 
 	}
-//	public static void main(String[] args)
-//	{ 
-//		
-//	} 
+ 
 }
