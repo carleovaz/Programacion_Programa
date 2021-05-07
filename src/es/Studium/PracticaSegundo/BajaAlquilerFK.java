@@ -18,7 +18,7 @@ import java.sql.Statement;
 public class BajaAlquilerFK implements WindowListener, ActionListener
 {
 	//CREAMOS EL FRAME Y SUS RESPECTIVOS OBJETOS
-	Frame frameBajaAlquiler = new Frame("Baja de Pelicula");
+	Frame frameBajaAlquiler = new Frame("Baja de Alquiler");
 	Label labelMensajeBajaPelicula = new Label("Selecciona al cliente y la pelicula:");
 	Choice choClientes = new Choice();
 	Choice choPeliculas = new Choice();
@@ -53,7 +53,6 @@ public class BajaAlquilerFK implements WindowListener, ActionListener
 		connection = bd.conectar();
 		//SELECCIONAMOS EL CLIENTE
 		sentencia = "SELECT * FROM clientes";
-
 		//CONECTAMOS A LA BASE DE DATOS
 		try
 		{
@@ -79,7 +78,7 @@ public class BajaAlquilerFK implements WindowListener, ActionListener
 		bd = new BaseDeDatos();
 		connection = bd.conectar();
 		//BUSCAMOS EN PELICULAS
-		sentencia = "SELECT * FROM Peliculas";
+		sentencia = "SELECT idPelicula , nombrePropietario, nombrePelicula, directorPelicula, precioPelicula FROM peliculas JOIN propietario ON peliculas.IdPropietarioFK1 = propietario.idPropietario";
 		try
 		{
 			statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
@@ -91,7 +90,7 @@ public class BajaAlquilerFK implements WindowListener, ActionListener
 			{
 				choPeliculas.add(rs.getInt("idPelicula")
 						+"-"+rs.getString("nombrePelicula") +"-"+rs.getString("directorPelicula")
-						+"-"+rs.getString("precioPelicula")+"-"+rs.getString("idPropietarioFK1")+"\n");
+						+"-"+rs.getString("precioPelicula")+"-"+rs.getString("nombrePropietario")+"\n");
 				
 			}
 		}
@@ -118,9 +117,8 @@ public class BajaAlquilerFK implements WindowListener, ActionListener
 		frameBajaAlquiler.setVisible(true);
 
 		frameBajaAlquiler.setLayout(new FlowLayout());
-
 	}
-
+	
 	@Override
 	//FUNCIONALIDAD A LOS BOTONES
 	public void actionPerformed(ActionEvent evento) 
@@ -146,7 +144,6 @@ public class BajaAlquilerFK implements WindowListener, ActionListener
 			log.guardar(usuario, "Ha pulsado el botón NO, ha cancelado el borrado");
 			dialogSeguroAlquiler.setVisible(false);
 		}
-
 		else if(evento.getSource().equals(botonSiSeguroAlquiler))
 		{
 			log.guardar(usuario, "Ha pulsado el botón SI, ha borrado la pelicula");
@@ -156,8 +153,7 @@ public class BajaAlquilerFK implements WindowListener, ActionListener
 			String[] elegidoClienteFK = choClientes.getSelectedItem().split("-");
 			String[] elegidoPeliculaFK = choPeliculas.getSelectedItem().split("-");
 			sentencia = "DELETE FROM alquileres WHERE idClientesFK2 =" + elegidoClienteFK[0] + " AND idPeliculasFK3 = "+ elegidoPeliculaFK[0];
-
-
+			
 			try
 			{
 				statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,

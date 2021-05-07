@@ -188,12 +188,10 @@ public class ModificacionPropietario implements ActionListener, WindowListener
 		{
 			frameModificacionPropietario.setVisible(false);
 		}
-
 		else if (frameModificacionPropietarioEdit.isActive())
 		{
 			frameModificacionPropietarioEdit.setVisible(false);
 		}
-
 		else if(dialogConfirmarModPropietario.isActive())
 		{
 			dialogConfirmarModPropietario.setVisible(false);

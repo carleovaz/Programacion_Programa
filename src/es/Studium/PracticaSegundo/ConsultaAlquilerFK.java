@@ -21,7 +21,6 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -100,7 +99,6 @@ public class ConsultaAlquilerFK implements WindowListener, ActionListener
 			ventanaAlquilerConsulta.setVisible(false);
 		}
 	}
-
 	public void actionPerformed(ActionEvent evento) 
 	{
 		if(evento.getSource().equals(botonPdf))
@@ -131,7 +129,6 @@ public class ConsultaAlquilerFK implements WindowListener, ActionListener
 				connection = bd.conectar();
 				//SELECCIONAMOS LA TABLA EN CUESTIÓN
 				sentencia = "SELECT idAlquiler, nombreCliente, nombrePelicula FROM alquileres JOIN  clientes ON alquileres.idClientesFK2 = clientes.idCliente JOIN peliculas ON alquileres.idPeliculasFK3 = peliculas.idPelicula";
-
 				try
 				{
 					statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
@@ -143,7 +140,6 @@ public class ConsultaAlquilerFK implements WindowListener, ActionListener
 						tabla.addCell(rs.getString(2));
 						tabla.addCell(rs.getString(3));
 					}
-
 				}
 				catch (SQLException sqle)
 				{

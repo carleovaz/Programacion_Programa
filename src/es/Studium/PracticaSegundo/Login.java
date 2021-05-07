@@ -19,7 +19,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class Login implements WindowListener, ActionListener //IMPLEMENTACIÓN DEL WINDOW LISTENER Y ACTION LISTENER
+//IMPLEMENTACIÓN DEL WINDOW LISTENER Y ACTION LISTENER
+public class Login implements WindowListener, ActionListener 
 {
 	//CREACION DE LA VENTANA DEL LOGIN
 	Frame login = new Frame ("Login");
@@ -37,7 +38,8 @@ public class Login implements WindowListener, ActionListener //IMPLEMENTACIÓN DE
 
 	//ELEMENTOS NECESARIOS PARA LA CONEXIÓN CON NUESTRA BASE DE DATOS
 	String driver = "com.mysql.cj.jdbc.Driver";
-	String url = "jdbc:mysql://localhost:3306/videoclub_programa?serverTimezone=UTC";//ESPECIFICAMOS LA URL
+	//ESPECIFICAMOS LA URL
+	String url = "jdbc:mysql://localhost:3306/videoclub_programa?serverTimezone=UTC";
 	String Login = "root";
 	String password = "Studium2020;";
 	String sentencia = "";

@@ -51,7 +51,7 @@ public class ModificacionAlquiler implements ActionListener, WindowListener
 		this.usuario = usuario;
 		bd = new BaseDeDatos();
 		connection = bd.conectar();
-		sentencia = "SELECT * FROM Alquileres";
+		sentencia = "SELECT idAlquiler, nombreCliente, nombrePelicula FROM alquileres JOIN  clientes ON alquileres.idClientesFK2 = clientes.idCliente JOIN peliculas ON alquileres.idPeliculasFK3 = peliculas.idPelicula";
 		try
 		{
 			statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
@@ -60,7 +60,7 @@ public class ModificacionAlquiler implements ActionListener, WindowListener
 			while(rs.next())
 			{
 				choModificarAlquiler.add(rs.getInt("idAlquiler")
-						+"-"+rs.getString("idClientesFK2") +"-"+rs.getString("idPeliculasFK3")+"\n");
+						+"-"+rs.getString("nombreCliente") +"-"+rs.getString("nombrePelicula")+"\n");
 			}
 		}
 		catch (SQLException sqle)

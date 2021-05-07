@@ -1,7 +1,6 @@
 /*
  * Estructura de AltaPropietario
  */
-
 package es.Studium.PracticaSegundo;
 
 import java.awt.Button;

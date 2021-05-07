@@ -1,3 +1,6 @@
+/*
+ * Estructura de BajaPropietario
+ */
 package es.Studium.PracticaSegundo;
 
 import java.awt.Button;
@@ -78,8 +81,6 @@ public class BajaPropietario implements ActionListener, WindowListener
 		frameBajaPropietario.addWindowListener(this);
 		frameBajaPropietario.setVisible(true);
 	}
-
-
 	@Override
 	public void actionPerformed(ActionEvent evento) 
 	{

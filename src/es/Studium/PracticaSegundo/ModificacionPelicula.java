@@ -55,7 +55,7 @@ public class ModificacionPelicula implements ActionListener, WindowListener
 		this.usuario = usuario;
 		bd = new BaseDeDatos();
 		connection = bd.conectar();
-		sentencia = "SELECT * FROM Peliculas";
+		sentencia = "SELECT idPelicula , nombrePropietario, nombrePelicula, directorPelicula, precioPelicula FROM peliculas JOIN propietario ON peliculas.IdPropietarioFK1 = propietario.idPropietario";
 		try
 		{
 			statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
@@ -65,7 +65,7 @@ public class ModificacionPelicula implements ActionListener, WindowListener
 			{
 				choModificarPelicula.add(rs.getInt("idPelicula")
 						+"-"+rs.getString("nombrePelicula") +"-"+rs.getString("directorPelicula")
-						+"-"+rs.getString("precioPelicula")+"-"+rs.getString("idPropietarioFK1")+"\n");
+						+"-"+rs.getString("precioPelicula")+"-"+rs.getString("nombrePropietario")+"\n");
 			}
 		}
 		catch (SQLException sqle)
@@ -87,15 +87,13 @@ public class ModificacionPelicula implements ActionListener, WindowListener
 		frameModificacionPelicula.setLocationRelativeTo(null);
 		frameModificacionPelicula.addWindowListener(this);
 		frameModificacionPelicula.setVisible(true);
-
 	}
-
 	@Override
 	public void actionPerformed(ActionEvent evento) 
 	{
 		if(evento.getSource().equals(botonModificarPelicula))
 		{
-			log.guardar(usuario, "Ha pulsado modificar cliente.");
+			log.guardar(usuario, "Ha pulsado modificar pelicula.");
 			frameModificacionPeliculaEdit.setLayout(new FlowLayout());
 
 			frameModificacionPeliculaEdit.add(labelModIdPelicula);
@@ -109,17 +107,17 @@ public class ModificacionPelicula implements ActionListener, WindowListener
 			frameModificacionPeliculaEdit.add(textoModPrecioPelicula);
 			frameModificacionPeliculaEdit.add(labelModIdPropietarioFK);
 			frameModificacionPeliculaEdit.add(textoModIdPropietarioFK);
+			
 			botonModificacionPeliculaAceptar.addActionListener(this);
 			frameModificacionPeliculaEdit.add(botonModificacionPeliculaAceptar);
 			botonModificacionPeliculaCancelar.addActionListener(this);
 			frameModificacionPeliculaEdit.add(botonModificacionPeliculaCancelar);
-
 			frameModificacionPeliculaEdit.setSize(210,350);
 			frameModificacionPeliculaEdit.setResizable(false);
 			frameModificacionPeliculaEdit.setLocationRelativeTo(null);
 			frameModificacionPeliculaEdit.addWindowListener(this);
 			frameModificacionPeliculaEdit.setVisible(true);
-
+			
 			String[] elegidoMod = choModificarPelicula.getSelectedItem().split("-");
 			textoModIdPelicula.setEditable(false);
 			textoModIdPelicula.setText(elegidoMod[0]);
@@ -176,7 +174,6 @@ public class ModificacionPelicula implements ActionListener, WindowListener
 			frameModificacionPelicula.setVisible(false);
 		}
 	}
-
 	@Override
 	public void windowClosing(WindowEvent evento) 
 	{
@@ -209,8 +206,6 @@ public class ModificacionPelicula implements ActionListener, WindowListener
 
 	}
 
-
-
 	@Override
 	public void windowDeactivated(WindowEvent arg0) {
 		// TODO Auto-generated method stub
@@ -234,6 +229,5 @@ public class ModificacionPelicula implements ActionListener, WindowListener
 		// TODO Auto-generated method stub
 
 	}
-
 
 }

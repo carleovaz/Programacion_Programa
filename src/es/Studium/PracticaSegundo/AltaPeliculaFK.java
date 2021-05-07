@@ -69,7 +69,6 @@ public class AltaPeliculaFK implements WindowListener, ActionListener
 
 		bd = new BaseDeDatos();
 		connection = bd.conectar();
-
 		sentencia = "SELECT * FROM propietario";
 		try
 		{

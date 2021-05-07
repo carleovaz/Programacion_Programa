@@ -195,7 +195,6 @@ public class AltaAlquilerFK implements WindowListener, ActionListener
 
 	}
 
-
 	@Override
 	public void windowDeactivated(WindowEvent e) {
 		// TODO Auto-generated method stub

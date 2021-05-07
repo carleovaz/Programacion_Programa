@@ -21,7 +21,6 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -56,7 +55,6 @@ public class ConsultaPeliculaFK implements WindowListener, ActionListener
 		bd = new BaseDeDatos();
 		connection = bd.conectar();
 		sentencia = "SELECT idPelicula , nombrePropietario, nombrePelicula, directorPelicula, precioPelicula FROM peliculas JOIN propietario ON peliculas.IdPropietarioFK1 = propietario.idPropietario";
-
 		try
 		{
 			statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
@@ -103,7 +101,6 @@ public class ConsultaPeliculaFK implements WindowListener, ActionListener
 			ventanaPeliculasConsulta.setVisible(false);
 		}
 	}
-	
 	@Override
 	public void actionPerformed(ActionEvent evento) 
 	{
@@ -137,7 +134,6 @@ public class ConsultaPeliculaFK implements WindowListener, ActionListener
 				connection = bd.conectar();
 				//SELECCIONAMOS LA TABLA EN CUESTIÓN
 				sentencia = "SELECT idPelicula , nombrePropietario, nombrePelicula, directorPelicula, precioPelicula FROM peliculas JOIN propietario ON peliculas.IdPropietarioFK1 = propietario.idPropietario";;
-
 				try
 				{
 					statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
@@ -151,7 +147,6 @@ public class ConsultaPeliculaFK implements WindowListener, ActionListener
 						tabla.addCell(rs.getString(4));
 						tabla.addCell(rs.getString(5));
 					}
-
 				}
 				catch (SQLException sqle)
 				{
@@ -188,9 +183,7 @@ public class ConsultaPeliculaFK implements WindowListener, ActionListener
 		}
 
 	}
-		
-
-	
+			
 
 	@Override
 	public void windowActivated(WindowEvent arg0) {

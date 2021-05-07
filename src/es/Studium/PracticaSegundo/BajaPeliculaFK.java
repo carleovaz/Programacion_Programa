@@ -71,14 +71,12 @@ public class BajaPeliculaFK implements WindowListener, ActionListener
 		}
 
 		catch (SQLException sqle)
-		{		
-			
-		}
-
+		{}
+		
 		bd = new BaseDeDatos();
 		connection = bd.conectar();
 		//BUSCAMOS EN PELICULAS
-		sentencia = "SELECT * FROM Peliculas";
+		sentencia = "SELECT idPelicula , nombrePropietario, nombrePelicula, directorPelicula, precioPelicula FROM peliculas JOIN propietario ON peliculas.IdPropietarioFK1 = propietario.idPropietario";
 		try
 		{
 			statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
@@ -90,16 +88,14 @@ public class BajaPeliculaFK implements WindowListener, ActionListener
 			{
 				choPeliculas.add(rs.getInt("idPelicula")
 						+"-"+rs.getString("nombrePelicula") +"-"+rs.getString("directorPelicula")
-						+"-"+rs.getString("precioPelicula")+"-"+rs.getString("idPropietarioFK1")+"\n");
+						+"-"+rs.getString("precioPelicula")+"-"+rs.getString("nombrePropietario")+"\n");
 			}
 		}
-
 		catch (SQLException sqle)
 		{
 			log.guardar(usuario, "La Pelicula no pudo ser borrada.");
 			labelConfirmacionBajaPelicula.setText("Error en Baja");
 		}
-
 		//AÑADIMOS EL FRAME DE DAR DE BAJA LA PELICULA
 		frameBajaPelicula.add(labelMensajeBajaPelicula);
 		frameBajaPelicula.add(choPeliculas);
@@ -116,9 +112,7 @@ public class BajaPeliculaFK implements WindowListener, ActionListener
 		frameBajaPelicula.setVisible(true);
 
 		frameBajaPelicula.setLayout(new FlowLayout());
-
 	}
-
 	@Override
 	//FUNCIONALIDAD A LOS BOTONES
 	public void actionPerformed(ActionEvent evento) 
@@ -137,15 +131,12 @@ public class BajaPeliculaFK implements WindowListener, ActionListener
 			botonNoSeguroPelicula.addActionListener(this);
 			dialogSeguroPelicula.add(botonNoSeguroPelicula);
 			dialogSeguroPelicula.setVisible(true);
-			
 		}
-
 		else if(evento.getSource().equals(botonNoSeguroPelicula))
 		{
 			log.guardar(usuario, "Ha pulsado el botón NO, ha cancelado el borrado");
 			dialogSeguroPelicula.setVisible(false);
 		}
-
 		else if(evento.getSource().equals(botonSiSeguroPelicula))
 		{
 			log.guardar(usuario, "Ha pulsado el botón SI, ha borrado la pelicula");
@@ -156,10 +147,6 @@ public class BajaPeliculaFK implements WindowListener, ActionListener
 			String[] elegidoPeli = choPeliculas.getSelectedItem().split("-");
 
 			//SENTENCIA DE BORRADO DENTRO DE LA TABLA PELCULAS:
-			/*
-			 * AÑADIR EL NOMBRE DE LA PELICULA PARA QUE NO SE ELIMINEN TODAS LAS PELICULAS ENLAZADAS AL PROPIETARIO
-			 * YA QUE DE LO CONTRARIO, SI SOLO ENLAZAMOS SU FK, NOS ELIMINARA AUTOMATICAMENTE, TODAS LAS PELICULAS DE DICHO PROPIETARIO
-			 */
 			sentencia = "DELETE FROM peliculas WHERE nombrePelicula =" + "\"" + elegidoPeli[1] + "\"" + " AND idPropietarioFK1 = "+elegidoPro[0];
 			try
 			{
@@ -176,7 +163,6 @@ public class BajaPeliculaFK implements WindowListener, ActionListener
 				log.guardar(usuario, "La Pelicula no pudo ser borrada.");
 				labelConfirmacionBajaPelicula.setText("Error en Baja");
 			}
-
 			finally
 			{
 				dialogConfirmacionBajaPelicula.setLayout(new FlowLayout());
@@ -200,8 +186,6 @@ public class BajaPeliculaFK implements WindowListener, ActionListener
 				System.exit(0);	
 			}
 		}
-
-
 	}
 	
 	public void windowClosing(WindowEvent e) 
