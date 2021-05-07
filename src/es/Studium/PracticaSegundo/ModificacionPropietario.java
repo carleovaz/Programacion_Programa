@@ -29,7 +29,7 @@ public class ModificacionPropietario implements ActionListener, WindowListener
 	Button botonModificarPropietarioCancelar = new Button("Cancelar");
 
 	//FRAME DE MODIFICACIÓN EDITAR PROPIETARIO
-	Frame frameModificacionPropietarioEdit = new Frame("Editar Cliente");
+	Frame frameModificacionPropietarioEdit = new Frame("Editar Propietario");
 	Label labelModIdPropietario = new Label("Id:");
 	TextField textoModIdPropietario = new TextField(20);
 	Label labelModNombrePropietario = new Label("Nombre:");

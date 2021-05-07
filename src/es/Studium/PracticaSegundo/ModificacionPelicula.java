@@ -26,7 +26,7 @@ public class ModificacionPelicula implements ActionListener, WindowListener
 	Button cancelar = new Button("Cancelar");
 
 	//FRAME DE MODIFICACIÓN EDITAR PELICULA
-	Frame frameModificacionPeliculaEdit = new Frame("Editar Cliente");
+	Frame frameModificacionPeliculaEdit = new Frame("Editar Pelicula");
 	Label labelModIdPelicula = new Label("Id:");
 	TextField textoModIdPelicula = new TextField(20);
 	Label labelModNombrePelicula = new Label("Nombre:");

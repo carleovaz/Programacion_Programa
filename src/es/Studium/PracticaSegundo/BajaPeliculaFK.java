@@ -155,7 +155,7 @@ public class BajaPeliculaFK implements WindowListener, ActionListener
 				System.out.println(sentencia);
 				log.guardar(usuario, sentencia);
 				statement.executeUpdate(sentencia);
-				labelConfirmacionBajaPelicula.setText("Baja de Pelicula realizada, sino se elimino, no pertenecia a dicho propietario.");
+				labelConfirmacionBajaPelicula.setText("Baja de Pelicula realizada");
 			}
 
 			catch (SQLException sqle)

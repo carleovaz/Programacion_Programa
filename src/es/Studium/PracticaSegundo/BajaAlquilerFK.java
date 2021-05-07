@@ -161,7 +161,7 @@ public class BajaAlquilerFK implements WindowListener, ActionListener
 				System.out.println(sentencia);
 				log.guardar(usuario, sentencia);
 				statement.executeUpdate(sentencia);
-				labelConfirmacionBajaAlquiler.setText("Baja de Pelicula realizada, sino se elimino, no pertenecia a dicho Cliente.");
+				labelConfirmacionBajaAlquiler.setText("Baja de Alquiler realizada.");
 			}
 
 			catch (SQLException sqle)
