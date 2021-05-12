@@ -69,6 +69,7 @@ public class Programa_Gestion implements WindowListener, ActionListener
 		ventanaPrincipal.setMenuBar(barraMenu);
 		if(usuario.equals("Admin"))//SI ES ADMIN
 		{
+			log.guardar(usuario, "Ha iniciado sesión.");
 			barraMenu.add(menuClientes);
 			menuItemAltaCliente.addActionListener(this);
 			menuClientes.add(menuItemAltaCliente);
@@ -116,6 +117,7 @@ public class Programa_Gestion implements WindowListener, ActionListener
 		}
 		else if(usuario.equals("Usuario"))//SI ES USUARIO
 		{
+			log.guardar(usuario, "Ha iniciado sesión.");
 			barraMenu.add(menuClientes);
 			menuItemAltaCliente.addActionListener(this);
 			menuClientes.add(menuItemAltaCliente);
@@ -267,7 +269,6 @@ public class Programa_Gestion implements WindowListener, ActionListener
 			new Ayuda(usuario);
 		}
 		
-
 	}
 
 	@Override
@@ -277,7 +278,15 @@ public class Programa_Gestion implements WindowListener, ActionListener
 		
 		if(ventanaPrincipal.isActive())
 		{	
-			log.guardar(usuario, "Ha cerrado sesión");
+			if(usuario.equals("Admin"))
+			{
+				log.guardar(usuario, "Ha cerrado sesión.");
+			}
+			else if(usuario.equals("Usuario"))
+			{
+				log.guardar(usuario, "Ha cerrado sesión.");
+			}
+			
 			ventanaPrincipal.setVisible(false);
 		}
 

@@ -33,7 +33,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 public class ConsultaCliente implements WindowListener, ActionListener
 {
 	Frame frameConsultaClientes = new Frame("Consulta de Clientes");
-	TextArea listadoClientes = new TextArea(4, 30);
+	TextArea listadoClientes = new TextArea(20, 80);
 	Button botonPdf = new Button("PDF");
 
 	BaseDeDatos bd;
@@ -81,7 +81,7 @@ public class ConsultaCliente implements WindowListener, ActionListener
 		frameConsultaClientes.add(listadoClientes);
 		frameConsultaClientes.add(botonPdf);
 		botonPdf.addActionListener(this);
-		frameConsultaClientes.setSize(280,160);
+		frameConsultaClientes.setSize(800,400);
 		frameConsultaClientes.setResizable(false);
 		frameConsultaClientes.setLocationRelativeTo(null);
 		frameConsultaClientes.addWindowListener(this);

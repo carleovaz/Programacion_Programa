@@ -84,7 +84,6 @@ public class Login implements WindowListener, ActionListener
 		if(botonPulsado.getSource().equals(botonEntrar))
 		{
 			//SE CONECTARA CON NUESTRA BASE DE DATOS Y BUSCARA CON LA SENTENCIA ESPECIFICA
-			log.guardar(usuario, "Ha iniciado sesión.");
 			connection = conectar();
 			sentencia = "SELECT * FROM usuarios WHERE nombreUsuario='"
 					+textoUsuario.getText()+"' AND contraseñaUsuario = SHA2('"
@@ -127,7 +126,6 @@ public class Login implements WindowListener, ActionListener
 
 		if (botonPulsado.getSource().equals(botonBorrar))
 		{
-			log.guardar(usuario, "Ha limpiado los textos.");
 			textoUsuario.selectAll();
 			textoUsuario.setText("");
 			textoClave.selectAll();

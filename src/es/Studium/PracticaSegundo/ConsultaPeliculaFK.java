@@ -35,7 +35,7 @@ public class ConsultaPeliculaFK implements WindowListener, ActionListener
 {
 	//CREAMOS EL FRAME
 	Frame ventanaPeliculasConsulta = new Frame("Consulta peliculas");
-	TextArea listadoPeliculasConsulta = new TextArea(5, 30);
+	TextArea listadoPeliculasConsulta = new TextArea(20, 80);
 	Button botonPdf = new Button("PDF");
 	Label labelMensajePeliculasConsulta = new Label("");
 
@@ -66,8 +66,8 @@ public class ConsultaPeliculaFK implements WindowListener, ActionListener
 			while(rs.next())
 			{
 				listadoPeliculasConsulta.append(rs.getInt("idPelicula")
-						+"-"+rs.getString("nombrePelicula") +"-"+rs.getString("directorPelicula")
-						+"-"+rs.getString("precioPelicula")+"-"+rs.getString("nombrePropietario")+"\n");
+						+"--------"+rs.getString("nombrePelicula") +"---------"+rs.getString("directorPelicula")
+						+"--------"+rs.getString("precioPelicula")+"---------"+rs.getString("nombrePropietario")+"\n");
 			}
 		}
 		//EN EL CASO QUE FALLE LA CONSULTA
@@ -82,7 +82,7 @@ public class ConsultaPeliculaFK implements WindowListener, ActionListener
 			ventanaPeliculasConsulta.add(listadoPeliculasConsulta);
 			ventanaPeliculasConsulta.add(botonPdf);
 			botonPdf.addActionListener(this);
-			ventanaPeliculasConsulta.setSize(250,200);
+			ventanaPeliculasConsulta.setSize(800,400);
 			ventanaPeliculasConsulta.setResizable(false);
 			ventanaPeliculasConsulta.setLocationRelativeTo(null);
 			ventanaPeliculasConsulta.addWindowListener(this);

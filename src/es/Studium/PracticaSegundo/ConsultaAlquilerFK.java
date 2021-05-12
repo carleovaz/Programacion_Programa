@@ -33,8 +33,8 @@ import com.itextpdf.text.pdf.PdfWriter;
 
 public class ConsultaAlquilerFK implements WindowListener, ActionListener
 {
-	Frame ventanaAlquilerConsulta = new Frame("Consulta");
-	TextArea listadoAlquilerConsulta = new TextArea(5, 30);
+	Frame ventanaAlquilerConsulta = new Frame("Consulta Alquileres");
+	TextArea listadoAlquilerConsulta = new TextArea(20, 80);
 	Button botonPdf = new Button("PDF");
 	Label labelMensajeAlquierConsulta = new Label("");
 
@@ -66,7 +66,7 @@ public class ConsultaAlquilerFK implements WindowListener, ActionListener
 			while(rs.next())
 			{
 				listadoAlquilerConsulta.append(rs.getInt("idAlquiler")
-						+"-"+rs.getString("nombreCliente") +"-"+rs.getString("nombrePelicula")+"\n");
+						+"------"+rs.getString("nombreCliente") +"------"+rs.getString("nombrePelicula")+"\n");
 			}
 		}
 		//EN EL CASO QUE FALLE
@@ -81,7 +81,7 @@ public class ConsultaAlquilerFK implements WindowListener, ActionListener
 			ventanaAlquilerConsulta.add(listadoAlquilerConsulta);
 			ventanaAlquilerConsulta.add(botonPdf);
 			botonPdf.addActionListener(this);
-			ventanaAlquilerConsulta.setSize(250,200);
+			ventanaAlquilerConsulta.setSize(800,400);
 			ventanaAlquilerConsulta.setResizable(false);
 			ventanaAlquilerConsulta.setLocationRelativeTo(null);
 			ventanaAlquilerConsulta.addWindowListener(this);

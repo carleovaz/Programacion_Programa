@@ -33,7 +33,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 public class ConsultaPropietario implements WindowListener, ActionListener
 {
 	Frame frameConsultaPropietarios = new Frame("Consulta de Propietarios");
-	TextArea listadoPropietarios = new TextArea(4, 30);
+	TextArea listadoPropietarios = new TextArea(20, 80);
 	Button botonPdf = new Button("PDF");
 	
 	BaseDeDatos bd;
@@ -63,8 +63,8 @@ public class ConsultaPropietario implements WindowListener, ActionListener
 			while(rs.next())
 			{
 				listadoPropietarios.append(rs.getInt("idPropietario")
-						+"-"+rs.getString("nombrePropietario") +"-"+rs.getString("direccionPropietario")
-						+"-"+rs.getString("telefonoPropietario")+"-"+rs.getString("dniPropietario")+"\n");
+						+"--"+rs.getString("nombrePropietario") +"-------"+rs.getString("direccionPropietario")
+						+"----"+rs.getString("telefonoPropietario")+"-------"+rs.getString("dniPropietario")+"\n");
 			}
 		}
 		catch (SQLException sqle)
@@ -75,7 +75,7 @@ public class ConsultaPropietario implements WindowListener, ActionListener
 		frameConsultaPropietarios.add(listadoPropietarios);
 		frameConsultaPropietarios.add(botonPdf);
 		botonPdf.addActionListener(this);
-		frameConsultaPropietarios.setSize(280,160);
+		frameConsultaPropietarios.setSize(800,400);
 		frameConsultaPropietarios.setResizable(false);
 		frameConsultaPropietarios.setLocationRelativeTo(null);
 		frameConsultaPropietarios.addWindowListener(this);
