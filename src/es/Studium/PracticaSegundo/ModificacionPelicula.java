@@ -173,6 +173,12 @@ public class ModificacionPelicula implements ActionListener, WindowListener
 			log.guardar(usuario, "Ha cancelado la modificación de la Pelicula");
 			frameModificacionPelicula.setVisible(false);
 		}
+		
+		else if(evento.getSource().equals(botonModificacionPeliculaCancelar))
+		{
+			log.guardar(usuario, "Ha salido de la modificación de la pelicula.");
+			frameModificacionPeliculaEdit.setVisible(false);
+		}
 	}
 	@Override
 	public void windowClosing(WindowEvent evento) 

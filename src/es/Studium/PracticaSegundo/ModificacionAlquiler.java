@@ -166,6 +166,12 @@ public class ModificacionAlquiler implements ActionListener, WindowListener
 			log.guardar(usuario, "Ha cancelado la modificación del Alquiler.");
 			frameModificacionAlquiler.setVisible(false);
 		}
+		
+		else if(evento.getSource().equals(botonModificacionPeliculaCancelar))
+		{
+			log.guardar(usuario, "Ha salido de la modificación del Alquiler.");
+			frameModificacionAlquilerEdit.setVisible(false);
+		}
 	}
 
 	@Override

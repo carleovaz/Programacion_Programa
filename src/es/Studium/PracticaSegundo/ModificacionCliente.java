@@ -185,6 +185,12 @@ public class ModificacionCliente implements ActionListener, WindowListener
 			log.guardar(usuario, "Ha cancelado la modificación del cliente.");
 			frameModificacionCliente.setVisible(false);
 		}
+		
+		else if(evento.getSource().equals(botonModificacionClienteCancelar))
+		{
+			log.guardar(usuario, "Ha salido de la modificación del cliente.");
+			frameModificacionClienteEdit.setVisible(false);
+		}
 	}
 	@Override
 	public void windowClosing(WindowEvent e) 

@@ -178,6 +178,12 @@ public class ModificacionPropietario implements ActionListener, WindowListener
 			log.guardar(usuario, "Ha cancelado la modificación del propietario.");
 			frameModificacionPropietario.setVisible(false);
 		}
+		
+		else if(evento.getSource().equals(botonModificacionPropietarioCancelar))
+		{
+			log.guardar(usuario, "Ha salido de la modificación del propietario.");
+			frameModificacionPropietarioEdit.setVisible(false);
+		}
 	}
 
 	@Override
